@@ -1,0 +1,218 @@
+<%- include('partials/header'); -%>
+
+    <main id="main">
+
+    
+        <!-- ======= Form Section ======= -->
+        <section class="contact section-bg">
+            
+                <div class="section-title" data-aos="fade-up">
+                    <h2>Business Registration Form</h2>
+                </div>
+    
+                <div class="row">
+    
+                    <div class="col-lg-12 mt-12 mt-lg-0 d-flex align-items-stretch" data-aos="fade-left">
+                        <form action="/user_business" method="POST" role="form" class="php-email-form" enctype="multipart/form-data">
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label for="name">Proposed Business Name</label>
+                                    <input type="text" name="business[name]" class="form-control" id="name" required />
+                                    <div class="validate"></div>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="object">Business Object </label>
+                                    <input type="text" class="form-control" name="business[object]" id="object" required />
+                                    <div class="validate"></div>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="businessAddress">Business Address</label>
+                                    <input type="text" class="form-control" name="business[address]" id="businessAddress" required/>
+                                    <div class="validate"></div>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="businessEmail">Business Email</label>
+                                    <input type="email" class="form-control" name="business[email]" id="businessEmail" required/>
+                                    <div class="validate"></div>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="businessContact">Business Contact</label>
+                                    <input type="text" class="form-control" name="business[contact]" id="businessContact" required/>
+                                    <div class="validate"></div>
+                                </div>
+                                <div class="proprietor1">
+                                    <div class="proprietor">Proprietor 1</div> 
+                                    <div class="form-group col-md-12">
+                                        <label for="proprietor1Name">Name</label>
+                                        <input type="text" class="form-control" name="proprietor1[name]" id="proprietor1Name"/>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="proprietor1Address">Address</label>
+                                        <input type="text" class="form-control" name="proprietor1[address]" id="proprietor1Address"/>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="proprietor1Date">Date of Birth</label>
+                                        <input type="date" class="form-control" name="proprietor1[date]" id="proprietor1Date"/>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="proprietor1Id">Means of ID</label>
+                                        <input type="file" class="form-control" name="photos" id="proprietor1Id"/>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="proprietor1Passport">Passport Photograph</label>
+                                        <input type="file" class="form-control" name="photos" id="proprietor1Passport"/>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="proprietor1Email">Email</label>
+                                        <input type="email" class="form-control" name="proprietor1[email]" id="proprietor1Email"/>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="proprietor1Number">Contact Number</label>
+                                        <input type="text" class="form-control" name="proprietor1[contact]" id="proprietor1Number"/>
+                                    </div>
+                                </div>
+                                <div class="proprietor2">
+                                    <div class="proprietor">Proprietor 2</div> 
+                                    <div class="form-group col-md-12">
+                                        <label for="proprietor2Name">Name</label>
+                                        <input type="text" class="form-control" name="proprietor2[name]" id="proprietor2Name"/>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="proprietor2Address">Address</label>
+                                        <input type="text" class="form-control" name="proprietor2[address]" id="proprietor2Address"/>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="proprietor2Date">Date of Birth</label>
+                                        <input type="date" class="form-control" name="proprietor2[date]" id="proprietor2Date"/>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="proprietor2Id">Means of ID</label>
+                                        <input type="file" class="form-control" name="photos" id="proprietor2Id"/>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="proprietor2Passport">Passport Photograph</label>
+                                        <input type="file" class="form-control" name="photos" id="proprietor2Passport"/>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="proprietor2Email">Email</label>
+                                        <input type="email" class="form-control" name="proprietor2[email]" id="proprietor2Email"/>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="proprietor2Number">Contact Number</label>
+                                        <input type="text" class="form-control" name="proprietor2[contact]" id="proprietor2Number"/>
+                                        <i class="far fa-plus-square first"></i>
+                                    </div>
+                                </div>
+                                <div class="proprietor3">
+                                    <div class="proprietor">Proprietor 3</div> 
+                                    <div class="form-group col-md-12">
+                                        <label for="proprietor3Name">Name</label>
+                                        <input type="text" class="form-control" name="proprietor3[name]" id="proprietor3Name"/>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="proprietor3Address">Address</label>
+                                        <input type="text" class="form-control" name="proprietor3[address]" id="proprietor3Address"/>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="proprietor3Date">Date of Birth</label>
+                                        <input type="date" class="form-control" name="proprietor3[date]" id="proprietor3Date"/>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="proprietor3Id">Means of ID</label>
+                                        <input type="file" class="form-control" name="photos" id="proprietor3Id"/>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="proprietor3Passport">Passport Photograph</label>
+                                        <input type="file" class="form-control" name="photos" id="proprietor3Passport"/>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="proprietor3Email">Email</label>
+                                        <input type="email" class="form-control" name="proprietor3[email]" id="proprietor3Email"/>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="proprietor3Number">Contact Number</label>
+                                        <input type="text" class="form-control" name="proprietor3[contact]" id="proprietor3Number"/>
+                                        <i class="far fa-plus-square second" style="float: left;"></i> <i class="far fa-minus-square first-minus minus" style="float: right;"></i>
+                                    </div>
+                                </div>
+                                <div class="proprietor4">
+                                    <div class="proprietor">Proprietor 4</div> 
+                                    <div class="form-group col-md-12">
+                                        <label for="proprietor4Name">Name</label>
+                                        <input type="text" class="form-control" name="proprietor4[name]" id="proprietor4Name"/>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="proprietor4Address">Address</label>
+                                        <input type="text" class="form-control" name="proprietor4[address]" id="proprietor4Address"/>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="proprietor4Date">Date of Birth</label>
+                                        <input type="date" class="form-control" name="proprietor4[date]" id="proprietor4Date"/>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="proprietor4Id">Means of ID</label>
+                                        <input type="file" class="form-control" name="photos" id="proprietor4Id"/>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="proprietor4Passport">Passport Photograph</label>
+                                        <input type="file" class="form-control" name="photos" id="proprietor4Passport"/>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="proprietor4Email">Email</label>
+                                        <input type="email" class="form-control" name="proprietor4[email]" id="proprietor4Email"/>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="proprietor4Number">Contact Number</label>
+                                        <input type="text" class="form-control" name="proprietor4[contact]" id="proprietor4Number"/>
+                                        <i class="far fa-plus-square third" style="float: left;"></i>
+                                        <i class="far fa-minus-square second-minus minus" style="float: right;"></i>
+                                    </div>
+                                </div>
+                                <div class="proprietor5">
+                                    <div class="proprietor">Proprietor 5</div> 
+                                    <div class="form-group col-md-12">
+                                        <label for="proprietor5Name">Name</label>
+                                        <input type="text" class="form-control" name="proprietor5[name]" id="proprietor5Name"/>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="proprietor5Address">Address</label>
+                                        <input type="text" class="form-control" name="proprietor5[address]" id="proprietor5Address"/>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="proprietor5Date">Date of Birth</label>
+                                        <input type="date" class="form-control" name="proprietor5[date]" id="proprietor5Date"/>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="proprietor5Id">Means of ID</label>
+                                        <input type="file" class="form-control" name="photos" id="proprietor5Id"/>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="proprietor5Passport">Passport Photograph</label>
+                                        <input type="file" class="form-control" name="photos" id="proprietor5Passport"/>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="proprietor5Email">Email</label>
+                                        <input type="email" class="form-control" name="proprietor5[email]" id="proprietor5Email"/>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="proprietor5Number">Contact Number</label>
+                                        <input type="text" class="form-control" name="proprietor5[contact]" id="proprietor5Number"/>
+                                        <i class="far fa-minus-square third-minus minus" style="float: right;"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                            </div>
+                            <div class="text-center"><button  type="submit">Register</button></div>
+                        </form>
+                    </div>
+    
+                </div>
+    
+        </section><!-- End form Section -->
+    
+    </main><!-- End #main -->
+    
+
+    <%- include('partials/footer'); -%>

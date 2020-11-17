@@ -1,0 +1,45 @@
+<%- include('partials/header'); -%>
+
+<main id="main">
+    <section class="contact section-bg">
+
+    <div class="container" data-aos="fade-up">
+        <div class="col-sm-12">
+            <div class="white-box section-title">
+                <div class="section-title" data-aos="fade-up">
+                    <h2>View All Adverts</h2>
+                </div>
+                <div class="table-responsive" >
+                    <table class="table ">
+                        <thead>
+                        <tr>
+                            <th>S/N</th>
+                            <th>Title</th>
+                            <th>Content</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <% var i = 0 %>
+                                <% products.forEach(function(product) { %>
+                                        <tr>
+                                            <td><%= ++i %></td>
+                                            <td><%= product.title %></td>
+                                            <td><%= product.content %></td>
+                                            <td><button class="btn btn-danger"><a class="btn btn-danger" href="/delete/<%= product._id%>">Delete</a></button></td>
+                                        </tr>
+                                <% }) %>
+                        
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section><!-- End form Section -->
+
+</main><!-- End #main -->
+
+
+<%- include('partials/footer'); -%>
