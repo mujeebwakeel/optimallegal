@@ -4,13 +4,12 @@ var moment = require("moment");
 var companySchema = new mongoose.Schema({
     username: String,
     password: String,
-    userEmail: String,
     date: {type: String, default: moment().format("L")},
     name: String,
     nature: String,
     address: String,
     shares: String,
-    directors: [
+    director:
         {
             name: String,
             gender: String,
@@ -18,11 +17,9 @@ var companySchema = new mongoose.Schema({
             address: String,
             date: String,
             email: String,
-            contact: String,
-            allotment: String
-
-        }
-    ],
+            phone: String,
+            idType: String
+        },
     identity: [
         {
             type: String
@@ -31,11 +28,12 @@ var companySchema = new mongoose.Schema({
     secretary: {
         name: String,
         gender: String,
-        Nationality: String,
-        address: String,
+        nationality: String, 
+        address: String, 
         date: String,
         email: String,
-        contact: String
+        phone: String,
+        idType: String
     },
     payment: [
         {

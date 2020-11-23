@@ -1,320 +1,391 @@
-<%- include('partials/header'); -%>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
+    <!-- Twitter meta-->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:site" content="@pratikborsadiya">
+    <meta property="twitter:creator" content="@pratikborsadiya">
+    <!-- Open Graph Meta--> 
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Vali Admin">
+    <meta property="og:title" content="Vali - Free Bootstrap 4 admin theme">
+    <meta property="og:url" content="http://pratikborsadiya.in/blog/vali-admin">
+    <meta property="og:image" content="http://pratikborsadiya.in/blog/vali-admin/hero-social.png">
+    <meta property="og:description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
+    <title>Company (LTD)</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <main id="main">
+      <link href="assets/img/favicon.png" rel="icon">
+      <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-    
-        <!-- ======= Form Section ======= -->
-        <section class="contact section-bg">
-            
-                <div class="section-title" data-aos="fade-up">
-                    <h2>Company Registration Form</h2>
-                </div>
-    
-                <div class="row">
-    
-                    <div class="col-lg-12 mt-12 mt-lg-0 d-flex align-items-stretch" data-aos="fade-left">
-                        <form action="/user_company" method="POST" role="form" class="php-email-form" enctype="multipart/form-data">
-                            <div class="form-row">
-                                <div class="form-group col-md-12">
-                                    <label for="name">Proposed Company Name</label>
-                                    <input type="text" name="company[name]" class="form-control" id="name" required />
-                                    <div class="validate"></div>
-                                </div>
-                                <div class="form-group col-md-12">
-                                    <label for="nature">Nature of Company</label>
-                                    <input type="text" class="form-control" name="company[nature]" id="nature" required />
-                                    <div class="validate"></div>
-                                </div>
-                                <div class="form-group col-md-12">
-                                    <label for="companyAddress">Company Address</label>
-                                    <input type="text" class="form-control" name="company[address]" id="companyAddress" required/>
-                                    <div class="validate"></div>
-                                </div>
-                                <div class="form-group col-md-12">
-                                    <label for="companyShares">Total Shares Capital</label>
-                                    <input type="text" class="form-control" name="company[shares]" id="companyShare" placeholder="the initial agreed cost changes if this exceeds 1Million Naira" required/>
-                                    <div class="validate"></div>
-                                </div>
-                                
-                                <div class="proprietor1">
-                                    <div class="director">Director 1</div> 
-                                    <div class="form-group col-md-12">
-                                        <label for="director1Name">Name</label>
-                                        <input type="text" class="form-control" name="director1[name]" id="director1Name"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="director1Address">Address</label>
-                                        <input type="text" class="form-control" name="director1[address]" id="director1Address"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="director1Date">Date of Birth</label>
-                                        <input type="date" class="form-control" name="director1[date]" id="director1Date"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="director1Id">Means of ID</label>
-                                        <input type="file" class="form-control"  name="photos" id="director1Id"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="director1Passport">Passport Photograph</label>
-                                        <input type="file" class="form-control"  name="photos" id="director1Passport"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="director1Email">Email</label>
-                                        <input type="email" class="form-control" name="director1[email]" id="director1Email"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="director1Number">Contact Number</label>
-                                        <input type="text" class="form-control" name="director1[contact]" id="director1Number"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="director1Nationality">Nationality</label>
-                                        <input type="text" class="form-control" name="director1[nationality]" id="director1Nationality"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label >Gender</label> <br>
-                                            <label >Male: <input type="radio" id="male" name="director1[gender]" value="Male"></label> <br>                                               
-                                            <label >Female: <input type="radio" name="director1[gender]" id="female" value="Female"/></label>                                       
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="director1Allotment">Shares Allotment</label>
-                                        <input type="text" class="form-control" name="director1[allotment]" id="director1Allotment"/>
-                                    </div>
-                                </div>
-                                <div class="proprietor2">
-                                    <div class="director">Director 2</div> 
-                                    <div class="form-group col-md-12">
-                                        <label for="director2Name">Name</label>
-                                        <input type="text" class="form-control" name="director2[name]" id="director2Name"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="director2Address">Address</label>
-                                        <input type="text" class="form-control" name="director2[address]" id="director2Address"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="director2Date">Date of Birth</label>
-                                        <input type="date" class="form-control" name="director2[date]" id="director2Date"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="director2Id">Means of ID</label>
-                                        <input type="file" class="form-control"  name="photos" id="director2Id"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="director2Passport">Passport Photograph</label>
-                                        <input type="file" class="form-control"  name="photos" id="director2Passport"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="director2Email">Email</label>
-                                        <input type="email" class="form-control" name="director2[email]" id="director2Email"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="director2Number">Contact Number</label>
-                                        <input type="text" class="form-control" name="director2[contact]" id="director2Number"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="director2Nationality">Nationality</label>
-                                        <input type="text" class="form-control" name="director2[nationality]" id="director2Nationality"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label >Gender</label> <br>
-                                            <label >Male: <input type="radio" id="male" name="director2[gender]" value="Male"></label> <br>                                               
-                                            <label >Female: <input type="radio" name="director2[gender]" id="female" value="Female"/></label>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="director2Allotment">Shares Allotment</label>
-                                        <input type="text" class="form-control" name="director2[allotment]" id="director2Allotment"/>
-                                        <i class="far fa-plus-square first"></i>
-                                    </div>
-                                </div>
-                                <div class="proprietor3">
-                                    <div class="director">Director 3</div> 
-                                    <div class="form-group col-md-12">
-                                        <label for="director3Name">Name</label>
-                                        <input type="text" class="form-control" name="director3[name]" id="director3Name"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="director3Address">Address</label>
-                                        <input type="text" class="form-control" name="director3[address]" id="director3Address"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="director3Date">Date of Birth</label>
-                                        <input type="date" class="form-control" name="director3[date]" id="director3Date"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="director3Id">Means of ID</label>
-                                        <input type="file" class="form-control"  name="photos" id="director3Id"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="director3Passport">Passport Photograph</label>
-                                        <input type="file" class="form-control"  name="photos" id="director3Passport"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="director3Email">Email</label>
-                                        <input type="email" class="form-control" name="director3[email]" id="director3Email"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="director3Number">Contact Number</label>
-                                        <input type="text" class="form-control" name="director3[contact]" id="director3Number"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="director3Nationality">Nationality</label>
-                                        <input type="text" class="form-control" name="director3[nationality]" id="director3Nationality"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label >Gender</label> <br>
-                                        <label >Male: <input type="radio" id="male" name="director3[gender]" value="Male"></label> <br>                                               
-                                        <label >Female: <input type="radio" name="director3[gender]" id="female" value="Female"/></label>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="director3Allotment">Shares Allotment</label>
-                                        <input type="text" class="form-control" name="director3[allotment]" id="director3Allotment"/>
-                                        <i class="far fa-plus-square second" style="float: left;"></i> <i class="far fa-minus-square first-minus minus" style="float: right;"></i>
-                                    </div>
-                                    
-                                </div>
-                                <div class="proprietor4">
-                                    <div class="director">Director 4</div> 
-                                    <div class="form-group col-md-12">
-                                        <label for="director4Name">Name</label>
-                                        <input type="text" class="form-control" name="director4[name]" id="director4Name"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="director4Address">Address</label>
-                                        <input type="text" class="form-control" name="director4[address]" id="director4Address"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="director4Date">Date of Birth</label>
-                                        <input type="date" class="form-control" name="director4[date]" id="director4Date"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="director4Id">Means of ID</label>
-                                        <input type="file" class="form-control"  name="photos" id="director4Id"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="director4Passport">Passport Photograph</label>
-                                        <input type="file" class="form-control"  name="photos" id="director4Passport"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="director4Email">Email</label>
-                                        <input type="email" class="form-control" name="director4[email]" id="director4Email"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="director4Number">Contact Number</label>
-                                        <input type="text" class="form-control" name="director4[contact]" id="director4Number"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="director4Nationality">Nationality</label>
-                                        <input type="text" class="form-control" name="director4[nationality]" id="director4Nationality"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label >Gender</label> <br>
-                                            <label >Male: <input type="radio" id="male" name="director4[gender]" value="Male"></label> <br>                                               
-                                            <label >Female: <input type="radio" name="director4[gender]" id="female" value="Female"/></label>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="director4Allotment">Shares Allotment</label>
-                                        <input type="text" class="form-control" name="director4[allotment]" id="director4Allotment"/>
-                                        <i class="far fa-plus-square third" style="float: left;"></i>
-                                        <i class="far fa-minus-square second-minus minus" style="float: right;"></i>
-                                    </div>
-                                </div>
-                                <div class="proprietor5">
-                                    <div class="director">Director 5</div> 
-                                    <div class="form-group col-md-12">
-                                        <label for="director5Name">Name</label>
-                                        <input type="text" class="form-control" name="director5[name]" id="director5Name"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="director5Address">Address</label>
-                                        <input type="text" class="form-control" name="director5[address]" id="director5Address"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="director5Date">Date of Birth</label>
-                                        <input type="date" class="form-control" name="director5[date]" id="director5Date"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="director5Id">Means of ID</label>
-                                        <input type="file" class="form-control"  name="photos" id="director5Id"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="director5Passport">Passport Photograph</label>
-                                        <input type="file" class="form-control"  name="photos" id="director5Passport"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="director5Email">Email</label>
-                                        <input type="email" class="form-control" name="director5[email]" id="director5Email"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="director5Number">Contact Number</label>
-                                        <input type="text" class="form-control" name="director5[contact]" id="director5Number"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="director5Nationality">Nationality</label>
-                                        <input type="text" class="form-control" name="director5[nationality]" id="director5Nationality"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label >Gender</label> <br>
-                                            <label >Male: <input type="radio" id="male" name="director5[gender]" value="Male"></label> <br>                                               
-                                            <label >Female: <input type="radio" name="director5[gender]" id="female" value="Female"/></label>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="director5Allotment">Shares Allotment</label>
-                                        <input type="text" class="form-control" name="director5[allotment]" id="director5Allotment"/>
-                                        <i class="far fa-minus-square third-minus minus" style="float: right;"></i>
-                                    </div>
-                                </div>
-                                <div class="secretary">
-                                    <div class="director">Secretary</div> 
-                                    <div class="form-group col-md-12">
-                                        <label for="secretaryName">Name</label>
-                                        <input type="text" class="form-control" name="secretary[name]" id="secretaryName"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="secretaryAddress">Address</label>
-                                        <input type="text" class="form-control" name="secretary[address]" id="secretaryAddress"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="secretaryDate">Date of Birth</label>
-                                        <input type="date" class="form-control" name="secretary[date]" id="secretaryDate"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="secretaryId">Means of ID</label>
-                                        <input type="file" class="form-control"  name="photos" id="secretaryId"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="secretaryPassport">Passport Photograph</label>
-                                        <input type="file" class="form-control"  name="photos" id="secretaryPassport"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="secretaryEmail">Email</label>
-                                        <input type="email" class="form-control" name="secretary[email]" id="secretaryEmail"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="secretaryNumber">Contact Number</label>
-                                        <input type="text" class="form-control" name="secretary[contact]" id="secretaryNumber"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="secretaryNationality">Nationality</label>
-                                        <input type="text" class="form-control" name="secretary[nationality]" id="secretaryNationality"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label >Gender</label> <br>
-                                            <label >Male: <input type="radio" id="male" name="secretary[gender]" value="Male"></label> <br>                                               
-                                            <label >Female: <input type="radio" name="secretary[gender]" id="female" value="Female"/></label>
-                                    </div>
-                                </div>
-                               
-                            </div>
-                            <div class="mb-3">
-                            </div>
-                            <div class="text-center"><button  type="submit">Register</button></div>
-                        </form>
+      <!-- Main CSS-->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <style>
+           .alert p {
+            text-align: center;
+          }
+          
+          .app-header__logo {
+              font-weight: 900;
+              font-size: 27px;
+              font-family: Roboto;
+              background-color: #283747;
+          }
+          .app-sidebar__toggle:focus, .app-sidebar__toggle:hover {
+              background-color:#5D6D7E;
+          }
+          .app-header{
+              background-color:  #34495E;
+          }
+          .app-menu__item:hover{
+              background-color: #808B96;
+          }
+          .app-menu__item:focus{
+              background-color: #808B96;
+          }
+          .app-menu__item.active{
+              background-color: #566573!important;
+          }
+          .app-sidebar{
+              background-color: #34495E;
+          }
+          .treeview.is-expanded [data-toggle='treeview']{
+              background:   #AEB6BF;
+          }
+          .treeview-item {
+              background:  #555555;
+              padding-left: 60px;
+          }
+          .treeview-item:hover {
+              background-color: #808B96;
+          }
+      </style>
+  </head>
+  <body class="app sidebar-mini">
+    <!-- Navbar-->
+    <header class="app-header"><a class="app-header__logo" href="/">deLAW</a>
+        <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
+        <!-- Navbar Right Menu-->
+        <ul class="app-nav">
+            <li class="app-search">
+                <input class="app-search__input" type="search" placeholder="Search">
+                <button class="app-search__button"><i class="fa fa-search"></i></button>
+            </li>
+            <!--Notification Menu-->
+            <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Show notifications"><i class="fa fa-bell-o fa-lg"></i></a>
+                <ul class="app-notification dropdown-menu dropdown-menu-right">
+                    <li class="app-notification__title">You have 4 new notifications.</li>
+                    <div class="app-notification__content">
+                        <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-envelope fa-stack-1x fa-inverse"></i></span></span>
+                            <div>
+                                <p class="app-notification__message">deLAW sent you a mail</p>
+                                <p class="app-notification__meta">2 min ago</p>
+                            </div></a></li>
+                        <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-danger"></i><i class="fa fa-hdd-o fa-stack-1x fa-inverse"></i></span></span>
+                            <div>
+                                <p class="app-notification__message">Mail server not working</p>
+                                <p class="app-notification__meta">5 min ago</p>
+                            </div></a></li>
+                        <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-success"></i><i class="fa fa-money fa-stack-1x fa-inverse"></i></span></span>
+                            <div>
+                                <p class="app-notification__message">Transaction complete</p>
+                                <p class="app-notification__meta">2 days ago</p>
+                            </div></a></li>
+                        <div class="app-notification__content">
+                            <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-envelope fa-stack-1x fa-inverse"></i></span></span>
+                                <div>
+                                    <p class="app-notification__message">deLAW sent you a mail</p>
+                                    <p class="app-notification__meta">2 min ago</p>
+                                </div></a></li>
+                            <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-danger"></i><i class="fa fa-hdd-o fa-stack-1x fa-inverse"></i></span></span>
+                                <div>
+                                    <p class="app-notification__message">Mail server not working</p>
+                                    <p class="app-notification__meta">5 min ago</p>
+                                </div></a></li>
+                            <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-success"></i><i class="fa fa-money fa-stack-1x fa-inverse"></i></span></span>
+                                <div>
+                                    <p class="app-notification__message">Transaction complete</p>
+                                    <p class="app-notification__meta">2 days ago</p>
+                                </div></a></li>
+                        </div>
                     </div>
-    
-                </div>
-    
-        </section><!-- End form Section -->
-    
-    </main><!-- End #main -->
-    
+                    <li class="app-notification__footer"><a href="#">See all notifications.</a></li>
+                </ul>
+            </li>
+            <!-- User Menu-->
+            <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
+                <ul class="dropdown-menu settings-menu dropdown-menu-right">
+                    <li><a class="dropdown-item" href="/deLawProfile"><i class="fa fa-cog fa-lg"></i> Settings</a></li>
+                    <li><a class="dropdown-item" href="/deLawProfile"><i class="fa fa-user fa-lg"></i> Profile</a></li>
+                    <li><a class="dropdown-item" href="/logout"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+    <!-- Sidebar menu-->
+    <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+    <aside class="app-sidebar">
+        <div class="app-sidebar__user"><i class="fa fa-lg fa-fw fa-user"></i>
+            <div>
+                <p class="app-sidebar__user-name">USER</p>
+            </div>
+        </div>
+        <ul class="app-menu">
+            <li><a class="app-menu__item active" href="/dashboard"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
+            <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Corporate Registrations</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a class="treeview-item" href="/business"> Business Name</a></li>
+                    <li><a class="treeview-item" href="/company"> Company(LTD)</a></li>
+                    <li><a class="treeview-item" href="/incorporate"> Incorporated Trustees (NGO)</a></li>
+                </ul>
+            <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-pencil"></i><span class="app-menu__label"> Will and Letter </span><i class="treeview-indicator fa fa-angle-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a class="treeview-item" href="/will"> Will and Testament</a></li>
+                    <li><a class="treeview-item" href="/letter"> Letter of Administration</a></li>
+                </ul>
+            </li>
+            <li class="treeview"><a class="app-menu__item" href="/payment" ><i class="app-menu__icon fa fa-dollar"></i><span class="app-menu__label">Payments</span></a>
+            </li>
+            </li>
+            <li class="treeview"><a class="app-menu__item" href="/logout" ><i class="app-menu__icon fa fa-sign-out"></i><span class="app-menu__label">logout</span></a>
+            </li>
+        </ul>
+    </aside>
+    <main class="app-content">
+      <div class="app-title">
+        <div>
+          <h1><i class="fa fa-edit"></i> Company Registration</h1>
+          <p>Provide the information below appropriately</p>
+        </div>
+        <ul class="app-breadcrumb breadcrumb">
+          <li class="breadcrumb-item" href="/dashboard"><i class="fa fa-home fa-lg"></i></li>
+          <li class="breadcrumb-item">Corporate Registration</li>
+          <li class="breadcrumb-item"><a href="#">Company's Name</a></li>
+        </ul>
+      </div>
+      <div class="container-fluid">
+        <% if(message && message.length > 0){ %>
+        <div class="alert alert-danger" role="alert">
+              <p><%= message %></p>
+        </div>
+        <% } %>
+        <% if(logout && logout.length > 0) { %>
+        <div class="alert alert-warning" role="alert">
+              <p><%= logout %>. Thank you for visiting our site</p>
+        </div>
+        <% } %>
+        <% if(error && error.length > 0){ %>
+        <div class="alert alert-danger" role="alert">
+              <p><%= error %></p>
+        </div>
+        <% } %>
+        <% if(success && success.length > 0){ %>
+        <div class="alert alert-success" role="alert">
+              <p><%= success %></p>
+        </div>
+        <% } %>
+      </div>
+        <form action="/company" method="POST" enctype="multipart/form-data">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="tile">
+            <div class="row">
+                <form>
+                 <div class="col-lg-12">
+                  <div class="form-group">
+                      <h2>Fill in your Company details below</h2>
+                    <label for="businessname">Choose a company's name</label>
+                    <input class="form-control" id="businessname" type="text" aria-describedby="emailHelp" name="company[name]"
+                           placeholder="Choose a company's namme"><small class="form-text text-muted" id="emailHelp"></small>
+                  </div>
+                  <div class="form-group">
+                    <label for="objective"> What is the nature of your company</label>
+                    <input class="form-control" id="objective" type="text" placeholder="e.g. real-estate" required="" name="company[nature]">
+                  </div>
+                    <div class="form-group">
+                    <label for="address"> Where is the address of your company?</label>
+                      <input class="form-control" id="address" type="text"
+                             placeholder="e.g. suite 20,lion plaza,bernard street,bodja" required="" name="company[address]">
+                  </div>
+                     <div class="form-group">
+                         <label for="objective"> Total Share Caital</label>
+                         <input class="form-control" id="objective" type="text" placeholder="Enter share capital amount" required="" name="company[share]">
+                     </div>
+                  </div>
+                 </div>
+        </div>
+      </div>
+    </main>
 
-    <%- include('partials/footer'); -%>
+
+    <!--directors and appointment of company registration begin-->
+
+    <main class="app-content">
+        <div class="app-title">
+            <div>
+                <h1><i class="fa fa-edit"></i> Directors and Secretary INFO</h1>
+                <p>Provide the information below appropriately</p>
+            </div>
+            <ul class="app-breadcrumb breadcrumb">
+                <li class="breadcrumb-item" href="/dashboard"><i class="fa fa-home fa-lg"></i></li>
+                <li class="breadcrumb-item">Corporate Registration</li>
+                <li class="breadcrumb-item"><a href="#">Company's Name</a></li>
+            </ul>
+        </div>
+        <form>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="tile">
+                        <div class="row">
+                            <form>
+                                <div class="col-lg-6">
+                                    <h2>Director's Info</h2>
+                                    <h6>Fill in your details below</h6>
+                                <div class="form-group">
+                                        <label for="businessname">Director(s) Name</label>
+                                        <input class="form-control" id="businessname" type="text" aria-describedby="emailHelp" name="director[name]"
+                                               placeholder="e.g. chris"><small class="form-text text-muted" id="emailHelp"></small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="gender" >Select Gender </label>
+                                        <select class=" form-control" id="gender" name="director[gender]">
+                                            <option>Gender</option>
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="address"> Nationality </label>
+                                        <input class="form-control" id="address" type="text" name="director[nationality]"
+                                               placeholder="e.g. Nigerian" required="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="address"> Where is the address of your company ?</label>
+                                        <input class="form-control" id="address" type="text"
+                                               placeholder="e.g. suite 20,lion plaza,bernard street,bodja" required="" name="director[address]">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="address"> Date of Birth </label>
+                                        <input class="form-control" id="address" type="text" name="director[date]"
+                                               placeholder="e.g. 09/12/1900" required="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="e-mail">E-mail</label>
+                                        <input class="form-control" type="email" id="e-mail" placeholder="e.g queens@gmail.com" required="" name="director[email]">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phoneNo">Enter your phone number</label>
+                                        <input class="form-control" type="tel" id="phoneNo" required="" name="director[phone]" >
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="valid id" >Select ID </label>
+                                        <select class=" form-control" id="valid id" name="director[idType]">
+                                            <option>Select</option>
+                                            <option value="National ID">National ID</option>
+                                            <option value="International Passport">International Passport</option>
+                                            <option value="Driver's License">Driver's License</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Upload ID</label>
+                                        <input class="form-control" type="file" accept="image/*" name="image">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Upload Passport Photograph</label>
+                                        <input class="form-control" type="file" accept="image/*" name="image">
+                                    </div>
+                                    </div>
+
+                                <div class="col-lg-6">
+                                    <h2>Appointment of Company Secretary</h2>
+                                    <h6>Fill in your secretary's details below</h6>
+                                    <div class="form-group">
+                                        <label for="businessname">Secretary Name</label>
+                                        <input class="form-control" id="businessname" type="text" aria-describedby="emailHelp" name="secretary[name]"
+                                               placeholder="e.g. chris"><small class="form-text text-muted" id="emailHelp"></small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="gender" >Select Gender </label>
+                                        <select class=" form-control" id="gender" name="secretary[gender]">
+                                            <option>Gender</option>
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="address"> Nationality </label>
+                                        <input class="form-control" id="address" type="text" name="secretary[nationality]"
+                                               placeholder="e.g. Nigerian" required="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="address"> Where is the address of your company's secretary ?</label>
+                                        <input class="form-control" id="address" type="text" name="secretary[address]"
+                                               placeholder="e.g. suite 20,lion plaza,bernard street,bodja" required="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="address"> Date of Birth </label>
+                                        <input class="form-control" id="address" type="text" name="secretary[date]"
+                                               placeholder="e.g. 09/12/1900" required="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="e-mail">E-mail</label>
+                                        <input class="form-control" type="email" id="e-mail" placeholder="e.g queens@gmail.com" name="secretary[email]" required="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phoneNo">Enter secretary's phone number</label>
+                                        <input class="form-control" type="tel" id="phoneNo" required=""  name="secretary[phone]">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="valid id" >Select ID </label>
+                                        <select class=" form-control" id="valid id" name="secretary[idType]">
+                                            <option>Select</option>
+                                            <option value="National ID">National ID</option>
+                                            <option value="International Passport">International Passport</option>
+                                            <option value="Driver's License">Driver's License</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Upload ID</label>
+                                        <input class="form-control" type="file" accept="image/*" name="image">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Upload Passport Photograph</label>
+                                        <input class="form-control" type="file" accept="image/*" name="image">
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary" type="submit">Submit</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </main>
+
+    <!--compand & appointment of company registration end-->
+
+       <!-- Essential javascripts for application to work-->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <!-- The javascript plugin to display page loading on top-->
+    <script src="js/plugins/pace.min.js"></script>
+    <!-- Page specific javascripts-->
+    <!-- Google analytics script-->
+    <script type="text/javascript">
+      if(document.location.hostname == 'pratikborsadiya.in') {
+      	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      	ga('create', 'UA-72504830-1', 'auto');
+      	ga('send', 'pageview');
+      }
+    </script>
+  </body>
+</html>

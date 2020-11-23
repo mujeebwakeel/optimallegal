@@ -1,11 +1,20 @@
 /**
-* Template Name: Company - v2.1.0
-* Template URL: https://bootstrapmade.com/company-free-html-bootstrap-template/
+* Template Name: Arsha - v2.2.1
+* Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
 !(function($) {
   "use strict";
+
+  // Preloader
+  $(window).on('load', function() {
+    if ($('#preloader').length) {
+      $('#preloader').delay(100).fadeOut('slow', function() {
+        $(this).remove();
+      });
+    }
+  });
 
   // Smooth scroll for the navigation menu and links with .scrollto classes
   var scrolltoOffset = $('#header').outerHeight() - 2;
@@ -16,7 +25,6 @@
         e.preventDefault();
 
         var scrollto = target.offset().top - scrolltoOffset;
-
         if ($(this).attr("href") == '#header') {
           scrollto = 0;
         }
@@ -40,7 +48,7 @@
     }
   });
 
-  // Activate smooth scroll on page load with hash links in the url
+  // Activate smooth scroll on page load with hash links
   $(document).ready(function() {
     if (window.location.hash) {
       var initial_nav = window.location.hash;
@@ -88,18 +96,41 @@
     $(".mobile-nav, .mobile-nav-toggle").hide();
   }
 
-  // Intro carousel
-  var heroCarousel = $("#heroCarousel");
-  var heroCarouselIndicators = $("#hero-carousel-indicators");
-  heroCarousel.find(".carousel-inner").children(".carousel-item").each(function(index) {
-    (index === 0) ?
-    heroCarouselIndicators.append("<li data-target='#heroCarousel' data-slide-to='" + index + "' class='active'></li>"):
-      heroCarouselIndicators.append("<li data-target='#heroCarousel' data-slide-to='" + index + "'></li>");
+  // Navigation active state on scroll
+  var nav_sections = $('section');
+  var main_nav = $('.nav-menu, #mobile-nav');
+
+  $(window).on('scroll', function() {
+    var cur_pos = $(this).scrollTop() + 200;
+
+    nav_sections.each(function() {
+      var top = $(this).offset().top,
+        bottom = top + $(this).outerHeight();
+
+      if (cur_pos >= top && cur_pos <= bottom) {
+        if (cur_pos <= bottom) {
+          main_nav.find('li').removeClass('active');
+        }
+        main_nav.find('a[href="#' + $(this).attr('id') + '"]').parent('li').addClass('active');
+      }
+      if (cur_pos < 300) {
+        $(".nav-menu ul:first li:first").addClass('active');
+      }
+    });
   });
 
-  heroCarousel.on('slid.bs.carousel', function(e) {
-    $(this).find('.carousel-content ').addClass('animate__animated animate__fadeInDown');
+  // Toggle .header-scrolled class to #header when page is scrolled
+  $(window).scroll(function() {
+    if ($(this).scrollTop() > 100) {
+      $('#header').addClass('header-scrolled');
+    } else {
+      $('#header').removeClass('header-scrolled');
+    }
   });
+
+  if ($(window).scrollTop() > 100) {
+    $('#header').addClass('header-scrolled');
+  }
 
   // Back to top button
   $(window).scroll(function() {
@@ -115,6 +146,15 @@
       scrollTop: 0
     }, 1500, 'easeInOutExpo');
     return false;
+  });
+
+  // Skills section
+  $('.skills-content').waypoint(function() {
+    $('.progress .progress-bar').each(function() {
+      $(this).css("width", $(this).attr("aria-valuenow") + '%');
+    });
+  }, {
+    offset: '80%'
   });
 
   // Porfolio isotope and filter
@@ -135,17 +175,10 @@
 
     // Initiate venobox (lightbox feature used in portofilo)
     $(document).ready(function() {
-      $('.venobox').venobox();
+      $('.venobox').venobox({
+        'share': false
+      });
     });
-  });
-
-  // Skills section
-  $('.skills-content').waypoint(function() {
-    $('.progress .progress-bar').each(function() {
-      $(this).css("width", $(this).attr("aria-valuenow") + '%');
-    });
-  }, {
-    offset: '80%'
   });
 
   // Portfolio details carousel
@@ -155,43 +188,6 @@
     loop: true,
     items: 1
   });
-
-  // Proprietor
-  $(".first").click(function() {
-    $(".proprietor3").css("display", "block");
-    $(".second").css("display", "block");
-    $(".third").css("display", "block");
-    $(this).css("display", "none");
-  });
-
-  $(".second").click(function() {
-    $(".proprietor4").css("display", "block");
-    $(".third").css("display", "block");
-    $(this).css("display", "none");
-  });  
-
-  $(".third").click(function() {
-    $(".proprietor5").css("display", "block");
-    $(this).css("display", "none");
-  });
-
-  $(".first-minus").click(function() {
-    $(".first").css("display", "block");
-    $(".proprietor3").css("display", "none");
-    $(".proprietor4").css("display", "none");
-    $(".proprietor5").css("display", "none");
-  });
-
-  $(".second-minus").click(function() {
-    $(".second").css("display", "block");
-    $(".proprietor4").css("display", "none");
-    $(".proprietor5").css("display", "none");
-  });
-
-  $(".third-minus").click(function() {
-    $(".third").css("display", "block");
-    $(".proprietor5").css("display", "none");
-  });  
 
   // Init AOS
   function aos_init() {

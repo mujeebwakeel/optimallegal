@@ -5,22 +5,14 @@ var async = require("async");
 var nodemailer = require("nodemailer");
 var smtpTransport = require("nodemailer-smtp-transport");
 
-// forgot password
-router.get('/user_forget', function(req, res) {
-  if(req.user) {
-    req.flash("message", "You are currently logged in");
-    return res.redirect("/user_login");
-}
-  res.render('forgot');
-});
 
-router.post('/user_forget', function(req, res) {
+router.post('/forgot', function(req, res) {
   async.waterfall([
     function(done) {
-      User.findOne({email: req.body.email}, function(err, user) {
+      User.findOne({username: req.body.email}, function(err, user) {
           if (err || !user) {
           req.flash('error', 'No account with that email address exists.');
-          return res.redirect('/user_forget');
+          return res.redirect('/user_login');
         }
 
         done(err,user);
@@ -56,9 +48,9 @@ router.post('/user_forget', function(req, res) {
   ], function(err) {
     if (err) {
       req.flash("error", "E-mail not sent, kindly contact the admin via lekan@optimallegalpreneurs.com");
-      return res.redirect('/user_forget');
+      return res.redirect('/user_login');
   }
-  res.redirect('/user_forget');
+  res.redirect('/user_login');
   });
 });
 

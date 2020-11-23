@@ -1,218 +1,335 @@
-<%- include('partials/header'); -%>
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+  <head>
+    <meta name="description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
+    <!-- Twitter meta-->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:site" content="@pratikborsadiya">
+    <meta property="twitter:creator" content="@pratikborsadiya">
+    <!-- Open Graph Meta-->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Vali Admin">
+    <meta property="og:title" content="Vali - Free Bootstrap 4 admin theme">
+    <meta property="og:url" content="http://pratikborsadiya.in/blog/vali-admin">
+    <meta property="og:image" content="http://pratikborsadiya.in/blog/vali-admin/hero-social.png">
+    <meta property="og:description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
+    <title>Business Name</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <main id="main">
+      <link href="assets/img/favicon.png" rel="icon">
+      <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-    
-        <!-- ======= Form Section ======= -->
-        <section class="contact section-bg">
-            
-                <div class="section-title" data-aos="fade-up">
-                    <h2>Business Registration Form</h2>
-                </div>
-    
-                <div class="row">
-    
-                    <div class="col-lg-12 mt-12 mt-lg-0 d-flex align-items-stretch" data-aos="fade-left">
-                        <form action="/user_business" method="POST" role="form" class="php-email-form" enctype="multipart/form-data">
-                            <div class="form-row">
-                                <div class="form-group col-md-12">
-                                    <label for="name">Proposed Business Name</label>
-                                    <input type="text" name="business[name]" class="form-control" id="name" required />
-                                    <div class="validate"></div>
-                                </div>
-                                <div class="form-group col-md-12">
-                                    <label for="object">Business Object </label>
-                                    <input type="text" class="form-control" name="business[object]" id="object" required />
-                                    <div class="validate"></div>
-                                </div>
-                                <div class="form-group col-md-12">
-                                    <label for="businessAddress">Business Address</label>
-                                    <input type="text" class="form-control" name="business[address]" id="businessAddress" required/>
-                                    <div class="validate"></div>
-                                </div>
-                                <div class="form-group col-md-12">
-                                    <label for="businessEmail">Business Email</label>
-                                    <input type="email" class="form-control" name="business[email]" id="businessEmail" required/>
-                                    <div class="validate"></div>
-                                </div>
-                                <div class="form-group col-md-12">
-                                    <label for="businessContact">Business Contact</label>
-                                    <input type="text" class="form-control" name="business[contact]" id="businessContact" required/>
-                                    <div class="validate"></div>
-                                </div>
-                                <div class="proprietor1">
-                                    <div class="proprietor">Proprietor 1</div> 
-                                    <div class="form-group col-md-12">
-                                        <label for="proprietor1Name">Name</label>
-                                        <input type="text" class="form-control" name="proprietor1[name]" id="proprietor1Name"/>
+    <!-- Main CSS-->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <style>
+         .alert p {
+            text-align: center;
+          }
+          
+          .app-header__logo {
+              font-weight: 900;
+              font-size: 27px;
+              font-family: Roboto;
+              background-color: #283747;
+          }
+          .app-sidebar__toggle:focus, .app-sidebar__toggle:hover {
+              background-color:#5D6D7E;
+          }
+          .app-header{
+              background-color:  #34495E;
+          }
+          .app-menu__item:hover{
+              background-color: #808B96;
+          }
+          .app-menu__item:focus{
+              background-color: #808B96;
+          }
+          .app-menu__item.active{
+              background-color: #566573!important;
+          }
+          .app-sidebar{
+              background-color: #34495E;
+          }
+          .treeview.is-expanded [data-toggle='treeview']{
+              background:   #AEB6BF;
+          }
+          .treeview-item {
+              background:  #555555;
+              padding-left: 60px;
+          }
+          .treeview-item:hover {
+              background-color: #808B96;
+          }
+      </style>
+  </head>
+  <body class="app sidebar-mini">
+    <!-- Navbar-->
+    <header class="app-header"><a class="app-header__logo" href="/">deLAW</a>
+      <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
+      <!-- Navbar Right Menu-->
+      <ul class="app-nav">
+        <li class="app-search">
+          <input class="app-search__input" type="search" placeholder="Search">
+          <button class="app-search__button"><i class="fa fa-search"></i></button>
+        </li>
+        <!--Notification Menu-->
+        <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Show notifications"><i class="fa fa-bell-o fa-lg"></i></a>
+          <ul class="app-notification dropdown-menu dropdown-menu-right">
+            <li class="app-notification__title">You have 4 new notifications.</li>
+            <div class="app-notification__content">
+              <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-envelope fa-stack-1x fa-inverse"></i></span></span>
+                  <div>
+                    <p class="app-notification__message">Lisa sent you a mail</p>
+                    <p class="app-notification__meta">2 min ago</p>
+                  </div></a></li>
+              <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-danger"></i><i class="fa fa-hdd-o fa-stack-1x fa-inverse"></i></span></span>
+                  <div>
+                    <p class="app-notification__message">Mail server not working</p>
+                    <p class="app-notification__meta">5 min ago</p>
+                  </div></a></li>
+              <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-success"></i><i class="fa fa-money fa-stack-1x fa-inverse"></i></span></span>
+                  <div>
+                    <p class="app-notification__message">Transaction complete</p>
+                    <p class="app-notification__meta">2 days ago</p>
+                  </div></a></li>
+              <div class="app-notification__content">
+                <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-envelope fa-stack-1x fa-inverse"></i></span></span>
+                    <div>
+                      <p class="app-notification__message">Lisa sent you a mail</p>
+                      <p class="app-notification__meta">2 min ago</p>
+                    </div></a></li>
+                <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-danger"></i><i class="fa fa-hdd-o fa-stack-1x fa-inverse"></i></span></span>
+                    <div>
+                      <p class="app-notification__message">Mail server not working</p>
+                      <p class="app-notification__meta">5 min ago</p>
+                    </div></a></li>
+                <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-success"></i><i class="fa fa-money fa-stack-1x fa-inverse"></i></span></span>
+                    <div>
+                      <p class="app-notification__message">Transaction complete</p>
+                      <p class="app-notification__meta">2 days ago</p>
+                    </div></a></li>
+              </div>
+            </div>
+            <li class="app-notification__footer"><a href="#">See all notifications.</a></li>
+          </ul>
+        </li>
+        <!-- User Menu-->
+        <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
+          <ul class="dropdown-menu settings-menu dropdown-menu-right">
+            <li><a class="dropdown-item" href="/deLawProfile"><i class="fa fa-cog fa-lg"></i> Settings</a></li>
+            <li><a class="dropdown-item" href="/deLawProfile"><i class="fa fa-user fa-lg"></i> Profile</a></li>
+            <li><a class="dropdown-item" href="/logout"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </header>
+    <!-- Sidebar menu-->
+    <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+    <aside class="app-sidebar">
+        <div class="app-sidebar__user"><i class="fa fa-lg fa-fw fa-user"></i>
+            <div>
+                <p class="app-sidebar__user-name">USER</p>
+            </div>
+        </div>
+        <ul class="app-menu">
+            <li><a class="app-menu__item active" href="/dashboard"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
+            <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Corporate Registrations</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a class="treeview-item" href="/business"> Business Name</a></li>
+                    <li><a class="treeview-item" href="/company"> Company(LTD)</a></li>
+                    <li><a class="treeview-item" href="/incorporate"> Incorporated Trustees (NGO)</a></li>
+                </ul>
+            <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-pencil"></i><span class="app-menu__label"> Will and Letter </span><i class="treeview-indicator fa fa-angle-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a class="treeview-item" href="/will"> Will and Testament</a></li>
+                    <li><a class="treeview-item" href="/letter"> Letter of Administration</a></li>
+                </ul>
+            </li>
+            <li class="treeview"><a class="app-menu__item" href="/payment" ><i class="app-menu__icon fa fa-dollar"></i><span class="app-menu__label">Payments</span></a>
+            </li>
+            </li>
+            <li class="treeview"><a class="app-menu__item" href="/logout" ><i class="app-menu__icon fa fa-sign-out"></i><span class="app-menu__label">logout</span></a>
+            </li>
+        </ul>
+    </aside>
+    <main class="app-content">
+      <div class="app-title">
+        <div>
+          <h1><i class="fa fa-edit"></i> Business Name</h1>
+          <p>Provide the information below appropriately</p>
+        </div>
+        <ul class="app-breadcrumb breadcrumb">
+          <li class="breadcrumb-item" href="/dashboard"><i class="fa fa-home fa-lg"></i></li>
+          <li class="breadcrumb-item">Corporate Registration</li>
+          <li class="breadcrumb-item"><a href="#">Business Name</a></li>
+        </ul>
+      </div>
+      <div class="container-fluid">
+        <% if(message && message.length > 0){ %>
+        <div class="alert alert-danger" role="alert">
+              <p><%= message %></p>
+        </div>
+        <% } %>
+        <% if(logout && logout.length > 0) { %>
+        <div class="alert alert-warning" role="alert">
+              <p><%= logout %>. Thank you for visiting our site</p>
+        </div>
+        <% } %>
+        <% if(error && error.length > 0){ %>
+        <div class="alert alert-danger" role="alert">
+              <p><%= error %></p>
+        </div>
+        <% } %>
+        <% if(success && success.length > 0){ %>
+        <div class="alert alert-success" role="alert">
+              <p><%= success %></p>
+        </div>
+        <% } %>
+      </div>
+        <form action="/business" method="POST" enctype="multipart/form-data">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="tile">
+            <div class="row">
+                <form>
+                 <div class="col-lg-12">
+                  <div class="form-group">
+                      <h2>Fill in your Business details below</h2>
+                    <label for="businessname">Choose a Business Name</label>
+                    <input class="form-control" id="businessname" type="text" aria-describedby="emailHelp" name="business[name]"
+                           placeholder="Choose a company's namme"><small class="form-text text-muted" id="emailHelp"></small>
+                  </div>
+                  <div class="form-group">
+                    <label for="objective"> What is the nature of your business</label>
+                    <input class="form-control" id="objective" type="text" placeholder="e.g. real-estate" name="business[nature]" required="">
+                  </div>
+                    <div class="form-group">
+                    <label for="address"> Where is the address of your business ?</label>
+                      <input class="form-control" id="address" type="text"
+                             placeholder="e.g. suite 20,lion plaza,bernard street,bodja" name="business[address]" required="">
+                  </div>
+                     <div class="form-group">
+                         <label for="e-mail">What is your Business e-mail</label>
+                         <input class="form-control" type="email" id="e-mail" placeholder="e.g queens@gmail.com" name="business[email]" required="">
+                     </div>
+                  </div>
+                 </div>
+        </div>
+      </div>
+    </main>
+
+
+    <!--directors and appointment of company registration begin-->
+
+    <main class="app-content">
+        <div class="app-title">
+            <div>
+                <h1><i class="fa fa-edit"></i> Proprietor's INFO</h1>
+                <p>Provide the information below appropriately</p>
+            </div>
+            <ul class="app-breadcrumb breadcrumb">
+                <li class="breadcrumb-item" href="/dashboard"><i class="fa fa-home fa-lg"></i></li>
+                <li class="breadcrumb-item">Corporate Registration</li>
+                <li class="breadcrumb-item"><a href="#">Business Name</a></li>
+            </ul>
+        </div>
+        <form>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="tile">
+                        <div class="row">
+                            <form>
+                                <div class="col-lg-12">
+                                    <h2>Proprietor's INFO</h2>
+                                    <h6>Fill in the details below</h6>
+                                <div class="form-group">
+                                        <label for="businessname">Proprietor's Name</label>
+                                        <input class="form-control" id="businessname" type="text" aria-describedby="emailHelp" name="proprietor[name]"
+                                               placeholder="e.g. chris"><small class="form-text text-muted" id="emailHelp"></small>
                                     </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="proprietor1Address">Address</label>
-                                        <input type="text" class="form-control" name="proprietor1[address]" id="proprietor1Address"/>
+                                    <div class="form-group">
+                                        <label for="gender" >Select Gender </label>
+                                        <select class=" form-control" id="gender" name="proprietor[gender]">
+                                            <option>Gender</option>
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                        </select>
                                     </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="proprietor1Date">Date of Birth</label>
-                                        <input type="date" class="form-control" name="proprietor1[date]" id="proprietor1Date"/>
+                                    <div class="form-group">
+                                        <label for="address"> Nationality </label>
+                                        <input class="form-control" id="address" type="text"
+                                               placeholder="e.g. Nigerian" name="proprietor[nationality]" required="">
                                     </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="proprietor1Id">Means of ID</label>
-                                        <input type="file" class="form-control" name="photos" id="proprietor1Id"/>
+                                    <div class="form-group">
+                                        <label for="address"> Address ?</label>
+                                        <input class="form-control" id="address" type="text" name="proprietor[address]"
+                                               placeholder="e.g. suite 20,lion plaza,bernard street,bodja" required="">
                                     </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="proprietor1Passport">Passport Photograph</label>
-                                        <input type="file" class="form-control" name="photos" id="proprietor1Passport"/>
+                                    <div class="form-group">
+                                        <label for="address"> Date of Birth </label>
+                                        <input class="form-control" id="address" type="text" name="proprietor[date]"
+                                               placeholder="e.g. 09/12/1900" required="">
                                     </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="proprietor1Email">Email</label>
-                                        <input type="email" class="form-control" name="proprietor1[email]" id="proprietor1Email"/>
+                                    <div class="form-group">
+                                        <label for="e-mail">E-mail</label>
+                                        <input class="form-control" type="email" id="e-mail" placeholder="e.g queens@gmail.com" name="proprietor[email]" required="">
                                     </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="proprietor1Number">Contact Number</label>
-                                        <input type="text" class="form-control" name="proprietor1[contact]" id="proprietor1Number"/>
+                                    <div class="form-group">
+                                        <label for="phoneNo">Phone number</label>
+                                        <input class="form-control" type="tel" id="phoneNo" required=""  name="proprietor[phone]">
                                     </div>
-                                </div>
-                                <div class="proprietor2">
-                                    <div class="proprietor">Proprietor 2</div> 
-                                    <div class="form-group col-md-12">
-                                        <label for="proprietor2Name">Name</label>
-                                        <input type="text" class="form-control" name="proprietor2[name]" id="proprietor2Name"/>
+                                    <div class="form-group">
+                                        <label for="valid id" >Select ID </label>
+                                        <select class=" form-control" id="valid id" name="proprietor[idType]">
+                                            <option>Select</option>
+                                            <option value="National ID">National ID</option>
+                                            <option value="International Passport">International Passport</option>
+                                            <option value="Driver's License">Driver's License</option>
+                                        </select>
                                     </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="proprietor2Address">Address</label>
-                                        <input type="text" class="form-control" name="proprietor2[address]" id="proprietor2Address"/>
+                                    <div class="form-group">
+                                        <label class="control-label">Upload ID</label>
+                                        <input class="form-control" type="file" accept="image/*" name="image">
                                     </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="proprietor2Date">Date of Birth</label>
-                                        <input type="date" class="form-control" name="proprietor2[date]" id="proprietor2Date"/>
+                                    <div class="form-group">
+                                        <label class="control-label">Upload Passport Photograph</label>
+                                        <input class="form-control" type="file" accept="image/*" name="image">
                                     </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="proprietor2Id">Means of ID</label>
-                                        <input type="file" class="form-control" name="photos" id="proprietor2Id"/>
                                     </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="proprietor2Passport">Passport Photograph</label>
-                                        <input type="file" class="form-control" name="photos" id="proprietor2Passport"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="proprietor2Email">Email</label>
-                                        <input type="email" class="form-control" name="proprietor2[email]" id="proprietor2Email"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="proprietor2Number">Contact Number</label>
-                                        <input type="text" class="form-control" name="proprietor2[contact]" id="proprietor2Number"/>
-                                        <i class="far fa-plus-square first"></i>
-                                    </div>
-                                </div>
-                                <div class="proprietor3">
-                                    <div class="proprietor">Proprietor 3</div> 
-                                    <div class="form-group col-md-12">
-                                        <label for="proprietor3Name">Name</label>
-                                        <input type="text" class="form-control" name="proprietor3[name]" id="proprietor3Name"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="proprietor3Address">Address</label>
-                                        <input type="text" class="form-control" name="proprietor3[address]" id="proprietor3Address"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="proprietor3Date">Date of Birth</label>
-                                        <input type="date" class="form-control" name="proprietor3[date]" id="proprietor3Date"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="proprietor3Id">Means of ID</label>
-                                        <input type="file" class="form-control" name="photos" id="proprietor3Id"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="proprietor3Passport">Passport Photograph</label>
-                                        <input type="file" class="form-control" name="photos" id="proprietor3Passport"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="proprietor3Email">Email</label>
-                                        <input type="email" class="form-control" name="proprietor3[email]" id="proprietor3Email"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="proprietor3Number">Contact Number</label>
-                                        <input type="text" class="form-control" name="proprietor3[contact]" id="proprietor3Number"/>
-                                        <i class="far fa-plus-square second" style="float: left;"></i> <i class="far fa-minus-square first-minus minus" style="float: right;"></i>
-                                    </div>
-                                </div>
-                                <div class="proprietor4">
-                                    <div class="proprietor">Proprietor 4</div> 
-                                    <div class="form-group col-md-12">
-                                        <label for="proprietor4Name">Name</label>
-                                        <input type="text" class="form-control" name="proprietor4[name]" id="proprietor4Name"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="proprietor4Address">Address</label>
-                                        <input type="text" class="form-control" name="proprietor4[address]" id="proprietor4Address"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="proprietor4Date">Date of Birth</label>
-                                        <input type="date" class="form-control" name="proprietor4[date]" id="proprietor4Date"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="proprietor4Id">Means of ID</label>
-                                        <input type="file" class="form-control" name="photos" id="proprietor4Id"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="proprietor4Passport">Passport Photograph</label>
-                                        <input type="file" class="form-control" name="photos" id="proprietor4Passport"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="proprietor4Email">Email</label>
-                                        <input type="email" class="form-control" name="proprietor4[email]" id="proprietor4Email"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="proprietor4Number">Contact Number</label>
-                                        <input type="text" class="form-control" name="proprietor4[contact]" id="proprietor4Number"/>
-                                        <i class="far fa-plus-square third" style="float: left;"></i>
-                                        <i class="far fa-minus-square second-minus minus" style="float: right;"></i>
-                                    </div>
-                                </div>
-                                <div class="proprietor5">
-                                    <div class="proprietor">Proprietor 5</div> 
-                                    <div class="form-group col-md-12">
-                                        <label for="proprietor5Name">Name</label>
-                                        <input type="text" class="form-control" name="proprietor5[name]" id="proprietor5Name"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="proprietor5Address">Address</label>
-                                        <input type="text" class="form-control" name="proprietor5[address]" id="proprietor5Address"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="proprietor5Date">Date of Birth</label>
-                                        <input type="date" class="form-control" name="proprietor5[date]" id="proprietor5Date"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="proprietor5Id">Means of ID</label>
-                                        <input type="file" class="form-control" name="photos" id="proprietor5Id"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="proprietor5Passport">Passport Photograph</label>
-                                        <input type="file" class="form-control" name="photos" id="proprietor5Passport"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="proprietor5Email">Email</label>
-                                        <input type="email" class="form-control" name="proprietor5[email]" id="proprietor5Email"/>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="proprietor5Number">Contact Number</label>
-                                        <input type="text" class="form-control" name="proprietor5[contact]" id="proprietor5Number"/>
-                                        <i class="far fa-minus-square third-minus minus" style="float: right;"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="mb-3">
-                            </div>
-                            <div class="text-center"><button  type="submit">Register</button></div>
-                        </form>
+
+                                  <div>
+                                <button class="btn btn-primary" type="submit">Submit</button>
+
+                        </div>
                     </div>
-    
                 </div>
-    
-        </section><!-- End form Section -->
-    
-    </main><!-- End #main -->
-    
+            </div>
+    </main>
 
-    <%- include('partials/footer'); -%>
+    <!--compand & appointment of company registration end-->
+
+       <!-- Essential javascripts for application to work-->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <!-- The javascript plugin to display page loading on top-->
+    <script src="js/plugins/pace.min.js"></script>
+    <!-- Page specific javascripts-->
+    <!-- Google analytics script-->
+    <script type="text/javascript">
+      if(document.location.hostname == 'pratikborsadiya.in') {
+      	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      	ga('create', 'UA-72504830-1', 'auto');
+      	ga('send', 'pageview');
+      }
+    </script>
+  </body>
+</html>
