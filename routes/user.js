@@ -48,7 +48,7 @@ router.get("/", function(req,res) {
 router.get("/user_signup", function(req,res){
     if(req.user) {
         req.flash("message", "You are currently logged in");
-        return res.redirect("/");
+        return res.redirect("/dashboard");
     }
     res.render("signup");
 });
