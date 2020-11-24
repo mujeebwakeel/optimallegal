@@ -66,7 +66,7 @@ router.post("/user_signup", function(req,res){
        }
        passport.authenticate("local")(req,res, function(){
            req.flash("success", "You are signed in");
-            res.redirect("/");
+            res.redirect("/dashboard");
        });
     }); 
 });
@@ -76,14 +76,14 @@ router.post("/user_signup", function(req,res){
 router.get("/user_login", function(req,res){
     if(req.user) {
         req.flash("message", "You are currently logged in");
-        return res.redirect("/");
+        return res.redirect("/dashboard");
     }
     res.render("login");
 });
 
 router.post("/user_login", passport.authenticate("local", {
     successFlash: "You are now logged in!",
-    successRedirect: "/",
+    successRedirect: "/dashboard",
     failureFlash: true,
     failureRedirect: "/user_login"
 }), function(req,res){
