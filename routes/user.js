@@ -6,6 +6,7 @@ var Company = require("../models/company");
 var Incorporate = require("../models/incorporate");
 var Letter = require("../models/letter");
 var Will = require("../models/will");
+var Property = require("../models/property");
 var passport = require("passport");
 var middleware = require("../middlewares");
 var async = require("async");
@@ -44,6 +45,131 @@ router.get("/", function(req,res) {
     res.render("index");
 })
 
+// ADMIN ROUTES
+router.get("/admin_login", function(req,res) {
+    if(req.user) {
+        req.flash("message", "You are currently logged in");
+        return res.redirect("/admin_dashboard");
+    }
+    res.render("admin/adminlogin");
+})
+
+router.post("/admin_login", passport.authenticate("local", {
+    successFlash: "You are now logged in!",
+    successRedirect: "/admin_dashboard",
+    failureFlash: true,
+    failureRedirect: "/admin_login"
+}), function(req,res){
+});
+
+router.get("/admin_dashboard", function(req,res) {
+    if(req.query && req.query.q === "in") {
+        User.findOne({username: req.user.username}, function(err, user) {
+            if(err || !user) {
+                req.flash("error", "Query not revelant");
+                return res.redirect("/");
+            }
+            user.login = moment().format("lll");
+            user.save(function(err, savedUser) {
+                res.render("admin/admindashboard")
+            })
+        }) 
+    }});
+
+router.get("/admin_manageuser", function(req,res) {
+    User.find({}, function(err, foundUsers) {
+        if(err || !foundUsers) {
+            req.flash("error", "Users not found");
+            return res.redirect("/admin_dashboard");
+        }
+        var users = [];
+        foundUsers.forEach(function(user) {
+            if(user.category) {
+                users.push(user);
+            }
+        })
+        res.render("admin/manageuser", {users: users})
+    })
+});
+
+router.get("/admin_payment", function(req,res) {
+    res.render("admin/payment")
+})
+
+router.get("/admin_uploadproperty", function(req,res) {
+    res.render("admin/uploadproperty")
+})
+
+router.post("/admin_uploadproperty", upload.single('image'), function(req,res) {
+    cloudinary.uploader.upload(req.file.path, function(err,result) { 
+        if(err){
+            req.flash("err", err.message);
+            return res.redirect("back");
+        }
+   // add cloudinary url for the image to the property object under image property
+ 
+   var property = req.body.property;
+   property.image = result.secure_url;
+   property.imageId = result.public_id;
+   
+   // add created to property
+   property.created = moment().format("L");  
+   Property.create(property, function(err, property) {
+     if (err) {
+       req.flash('error', err.message);
+       return res.redirect('back');
+     }
+     req.flash("success", "You successfully uploaded a property");
+     res.redirect('/admin_uploadproperty');
+   });
+ });
+})
+
+router.get("/admin_userprofile", function(req,res) {
+    if(req.query.q) {
+        Business.findOne({username: req.query.q}, function(err, foundBusiness) {
+            if(err) {
+                req.flash("error", "Something went wrong while resolving business detail");
+                return res.redirect("/admin_manageuser");        
+            }
+            Company.findOne({username: req.query.q}, function(err, foundCompany) {
+                if(err) {
+                    req.flash("error", "Something went wrong while resolving company detail");
+                    return res.redirect("/admin_manageuser");
+                }
+            Incorporate.findOne({username: req.query.q}, function(err, foundIncorporate) {
+                if(err) {
+                    req.flash("error", "Something went wrong while resolving incorporate detail");
+                    return res.redirect("/admin_manageuser");
+                }
+            Letter.findOne({username: req.query.q}, function(err, foundLetter) {
+                if(err) {
+                    req.flash("error", "Something went wrong while resolving letter detail");
+                    return res.redirect("/admin_manageuser");
+                }
+            Will.findOne({username: req.query.q}, function(err, foundWill) {
+                if(err) {
+                    req.flash("error", "Something went wrong while resolving will detail");
+                    return res.redirect("/admin_manageuser");
+                }
+                User.findOne({username: req.query.q}, function(err, user) {
+                    if(err) {
+                        req.flash("error", "User not found");
+                        return res.redirect("/admin_manageuser");
+                    }
+                    return res.render("admin/userprofile", {business: foundBusiness, company: foundCompany, incorporate: foundIncorporate, letter: foundLetter, will: foundWill, user: user});
+                })
+            })
+           })
+          })
+         })
+        })
+    } else {
+        res.redirect("/admin_manageuser");
+    }
+})
+
+
 // USER AUTH ROUTES
 router.get("/user_signup", function(req,res){
     if(req.user) {
@@ -57,6 +183,8 @@ router.post("/user_signup", function(req,res){
              var newUser = new User({ 
                                       username: req.body.username,
                                       password: req.body.password,
+                                      email: req.body.email,
+                                      created: moment().format("L")
                                 });
    User.register(newUser, req.body.password, function(err,user){
        if(err || !user){
@@ -64,7 +192,7 @@ router.post("/user_signup", function(req,res){
            req.flash("error", err.message);
            return res.redirect("/user_signup");
        }
-       passport.authenticate("local")(req,res, function(){
+       passport.authenticate("local")(req,res, function(){        
            req.flash("success", "You are signed in");
             res.redirect("/dashboard");
        });
@@ -83,7 +211,7 @@ router.get("/user_login", function(req,res){
 
 router.post("/user_login", passport.authenticate("local", {
     successFlash: "You are now logged in!",
-    successRedirect: "/dashboard",
+    successRedirect: "/dashboard?q=in",
     failureFlash: true,
     failureRedirect: "/user_login"
 }), function(req,res){
@@ -102,6 +230,7 @@ router.post("/business", middleware.isUserLoggedIn, upload.array('image'), funct
                 req.flash("error", "something went wrong while creating business");
                 return res.redirect("/business");
             }
+            foundUser.category = "business";
             createdBusiness.username = foundUser.username;
             createdBusiness.password = foundUser.password;
             createdBusiness.proprietor = req.body.proprietor;
@@ -137,6 +266,7 @@ router.post("/company", middleware.isUserLoggedIn, upload.array('image'), functi
                 req.flash("error", "something went wrong while creating company");
                 return res.redirect("/company");
             }
+            foundUser.category = "company";
             createdCompany.username = foundUser.username;
             createdCompany.password = foundUser.password;
             createdCompany.secretary = req.body.secretary;
@@ -170,6 +300,7 @@ router.post("/incorporate", middleware.isUserLoggedIn, upload.array('image'), fu
                 req.flash("error", "something went wrong while creating incorporate");
                 return res.redirect("/");
             }
+            foundUser.category = "incorporate";
             createdIncorporate.username = foundUser.username;
             createdIncorporate.password = foundUser.password;
             createdIncorporate.secretary = req.body.secretary;
@@ -205,6 +336,7 @@ router.post("/will", middleware.isUserLoggedIn, function(req,res) {
                 req.flash("error", "something went wrong while submitting will");
                 return res.redirect("/will");
             } 
+            foundUser.category = "will";
             createdWill.username = foundUser.username;
             createdWill.password = foundUser.password;
 
@@ -231,7 +363,7 @@ router.post("/letter", middleware.isUserLoggedIn, function(req,res) {
                 req.flash("error", "something went wrong while submitting letter");
                 return res.redirect("/letter");
             } 
-            console.log(req.body.name);
+            foundUser.category = "letter";
             createdLetter.username = foundUser.username;
             createdLetter.password = foundUser.password;
 
@@ -248,7 +380,18 @@ router.post("/letter", middleware.isUserLoggedIn, function(req,res) {
 })
 
 router.get("/dashboard", middleware.isUserLoggedIn, function(req,res) {
-    res.render("dashboard")
+    if(req.query && req.query.q === "in") {
+        User.findOne({username: req.user.username}, function(err, user) {
+            if(err || !user) {
+                req.flash("error", "Query not revelant");
+                return res.redirect("/");
+            }
+            user.login = moment().format("lll");
+            user.save(function(err, savedUser) {
+                res.render("dashboard")
+            })
+        })
+    }
 })
 
 router.get("/payment", middleware.isUserLoggedIn, function(req,res) {
@@ -418,11 +561,16 @@ router.get("/all", function(req,res) {
 })
 
 // LOG OUT ROUTE
+router.get("/admin_logout", function(req,res){
+    req.logout();
+    req.flash("success", "You are signed out");
+    res.redirect("/admin_login");
+});
+
 router.get("/logout", function(req,res){
     req.logout();
     req.flash("success", "You are signed out");
     res.redirect("/");
 });
-
 
 module.exports = router;

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
+    <!-- Twitter meta-->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:site" content="@pratikborsadiya">
+    <meta property="twitter:creator" content="@pratikborsadiya">
+    <!-- Open Graph Meta-->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Vali Admin">
+    <meta property="og:title" content="Vali - Free Bootstrap 4 admin theme">
+    <meta property="og:url" content="http://pratikborsadiya.in/blog/vali-admin">
+    <meta property="og:image" content="http://pratikborsadiya.in/blog/vali-admin/hero-social.png">
+    <meta property="og:description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
+    <title>Payment</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="admin/assets/img/favicon.png" rel="icon">
+    <link href="admin/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Main CSS-->
+    <link rel="stylesheet" type="text/css" href="admin/css/main.css">
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .app-header__logo {
+            font-weight: 900;
+            font-size: 27px;
+            font-family: Roboto;
+            background-color: #283747;
+        }
+        .app-sidebar__toggle:focus, .app-sidebar__toggle:hover {
+            background-color:#5D6D7E;
+        }
+        .app-header{
+            background-color:  #34495E;
+        }
+        .app-menu__item:hover{
+            background-color: #808B96;
+        }
+        .app-menu__item:focus{
+            background-color: #808B96;
+        }
+        .app-menu__item.active{
+            background-color: #566573!important;
+        }
+        .app-sidebar{
+            background-color: #34495E;
+        }
+        .treeview.is-expanded [data-toggle='treeview']{
+            background:   #AEB6BF;
+        }
+        .treeview-item {
+            background:  #555555;
+            padding-left: 60px;
+        }
+        .treeview-item:hover {
+            background-color: #808B96;
+        }
+    </style>
+</head>
+<body class="app sidebar-mini">
+<!-- Navbar-->
+<header class="app-header"><a class="app-header__logo" href="#">deLAW</a>
+    <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
+    <!-- Navbar Right Menu-->
+    <ul class="app-nav">
+        <li class="app-search">
+            <input class="app-search__input" type="search" placeholder="Search">
+            <button class="app-search__button"><i class="fa fa-search"></i></button>
+        </li>
+    </ul>
+</header>
+<!-- Sidebar menu-->
+<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+<aside class="app-sidebar">
+    <div class="app-sidebar__user"><i class="fa fa-lg fa-fw fa-user"></i>
+        <div>
+            <p class="app-sidebar__user-name">ADMIN</p>
+        </div>
+    </div>
+    <ul class="app-menu">
+        <li><a class="app-menu__item active" href="/admin_dashboard"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-user"></i><span class="app-menu__label">View Users</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+           
+            <ul class="treeview-menu">
+                <li><a class="treeview-item" href="/admin_manageuser"> Manage User</a></li>
+            </ul>
+            <!--<li class="treeview"><a class="app-menu__item" href="Payment.html" data-toggle="treeview"><i class="app-menu__icon fa fa-dollar"></i><span class="app-menu__label"> Payment </span></a>-->
+        <li><a class="app-menu__item active" href="/admin_payment"><i class="app-menu__icon fa fa-dollar"></i><span class="app-menu__label">Payment</span></a></li>
+        <!--<li class="treeview"><a class="app-menu__item" href="Upload%20Properties.html" data-toggle="treeview"><i class="app-menu__icon fa fa-home"></i><span class="app-menu__label"> Upload Properties </span></a>-->
+        <!--</li>-->
+        <li><a class="app-menu__item active" href="/admin_uploadproperty"><i class="app-menu__icon fa fa-home"></i><span class="app-menu__label">Upload Properties</span></a></li>
+        <li><a class="app-menu__item active" href="/admin_logout"><i class="app-menu__icon fa fa-sign-out"></i><span class="app-menu__label">Log out</span></a></li>
+        </li>
+    </ul>
+</aside>
+    <main class="app-content">
+      <div class="app-title">
+        <div>
+          <h1><span id="ft"><i class="fa fa-th-list"></i></span>Payment Table</h1>
+        </div>
+        <ul class="app-breadcrumb breadcrumb side">
+          <li class="breadcrumb-item"><span id="ft"><i class="fa fa-money" aria-hidden="true"></span></i></li>
+          <li class="breadcrumb-item active"><a href="#">Payments</a></li>
+        </ul>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="tile">
+            <div class="tile-body">
+              <div class="table-responsive">
+                <table class="table table-hover table-bordered" id="sampleTable">
+                  <thead>
+                    <tr>
+                      <th>User Name</th>
+                      <th>Transaction ID</th>
+                      <th>Payment Type</th>
+                      <th>Status</th>
+                      <th>Date</th>
+                      <th>Amount</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Oladoja Pelumi</td>
+                      <td>203AD</td>
+                      <td>Business Registration</td>
+                      <td>Pending</td>
+                      <td>2011/04/25</td>
+                      <td><span>&#8358;</span>20,000</td>
+                    </tr>
+                    <tr>
+                        <td>Emmanuel</td>
+                        <td>256CV</td>
+                        <td>Will</td>
+                        <td>Successful</td>
+                        <td>2020/05/08</td>
+                        <td><span>&#8358;</span>29,000</td>
+                    </tr>
+                    <tr>
+                        <td>Tiger</td>
+                        <td>130FA</td>
+                        <td>Company Limited</td>
+                        <td>Failed</td>
+                        <td>2011/04/24</td>
+                        <td><span>&#8358;</span>30,000</td>
+                    </tr>
+                    
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Essential javascripts for application to work-->
+    <script src="admin/js/jquery-3.3.1.min.js"></script>
+    <script src="admin/js/popper.min.js"></script>
+    <script src="admin/js/bootstrap.min.js"></script>
+    <script src="admin/js/main.js"></script>
+    <!-- The javascript plugin to display page loading on top-->
+    <script src="admin/js/plugins/pace.min.js"></script>
+    <!-- Page specific javascripts-->
+    <!-- Data table plugin-->
+    <script type="text/javascript" src="admin/js/plugins/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="admin/js/plugins/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript">$('#sampleTable').DataTable();</script>
+    <!-- Google analytics script-->
+    <script type="text/javascript">
+      if(document.location.hostname == 'pratikborsadiya.in') {
+      	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      	ga('create', 'UA-72504830-1', 'auto');
+      	ga('send', 'pageview');
+      }
+    </script>
+    <script> var getColor = function(text) {
+     if (text === "Successful") return 'green';
+     if (text === "Pending") return 'yellow';
+        if (text === "Failed") return 'red';
+        return "";
+    };
+
+    $('td').each(function(i, td) {
+    var color = getColor($(td).html());
+    $(td).css({
+    "color": color
+    });
+    });
+    </script>
+  </body>
+</html>
