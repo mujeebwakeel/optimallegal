@@ -68,7 +68,7 @@
   </head>
   <body class="app sidebar-mini">
     <!-- Navbar-->
-    <header class="app-header"><a class="app-header__logo" href="/">deLAW</a>
+    <header class="app-header"><a class="app-header__logo" href="/">OptimalLegal</a>
       <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
       <!-- Navbar Right Menu-->
       <ul class="app-nav">
@@ -190,7 +190,7 @@
         </div>
         <% } %>
       </div>
-        <form action="/incorporate" method="POST" enctype="multipart/form-data">
+        <form id="incorporate" action="/incorporate" method="POST" enctype="multipart/form-data">
       <div class="row">
         <div class="col-md-12">
           <div class="tile">
@@ -202,6 +202,10 @@
                     <label for="businessname"> What is your Organization's Name?</label>
                     <input class="form-control" id="businessname" type="text" aria-describedby="emailHelp" name="incorporate[name]"
                            placeholder="Enter your organization's Name"><small class="form-text text-muted" id="emailHelp"></small>
+                  </div>
+                  <div class="form-group" style="display: none;">
+                    <label for="ref">Payment Reference</label>
+                    <input class="form-control" id="ref" type="text"  placeholder="Enter your name" required="" name="incorporate[paymentref]">
                   </div>
                   <div class="form-group">
                     <label for="objective"> What is the nature of your Organization?</label>
@@ -237,7 +241,7 @@
                 <li class="breadcrumb-item"><a href="#">Incorporated Trustees</a></li>
             </ul>
         </div>
-        <form>
+        <form >
             <div class="row">
                 <div class="col-md-12">
                     <div class="tile">
@@ -443,7 +447,8 @@
                                     </div>
 
                                 </div>
-                                <button class="btn btn-primary" type="submit">Submit</button>
+                                <script src="https://js.paystack.co/v1/inline.js"></script>
+                                <button class="btn btn-primary" type="button" onclick="payWithPaystack()">Submit</button>
 
                         </div>
                     </div>
@@ -472,5 +477,6 @@
       	ga('send', 'pageview');
       }
     </script>
+    <script src="js/incorporate.js"></script>
   </body>
 </html>

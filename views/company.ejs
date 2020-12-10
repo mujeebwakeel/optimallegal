@@ -68,7 +68,7 @@
   </head>
   <body class="app sidebar-mini">
     <!-- Navbar-->
-    <header class="app-header"><a class="app-header__logo" href="/">deLAW</a>
+    <header class="app-header"><a class="app-header__logo" href="/">OptimalLegal</a>
         <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
         <!-- Navbar Right Menu-->
         <ul class="app-nav">
@@ -83,7 +83,7 @@
                     <div class="app-notification__content">
                         <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-envelope fa-stack-1x fa-inverse"></i></span></span>
                             <div>
-                                <p class="app-notification__message">deLAW sent you a mail</p>
+                                <p class="app-notification__message">Optiml sent you a mail</p>
                                 <p class="app-notification__meta">2 min ago</p>
                             </div></a></li>
                         <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-danger"></i><i class="fa fa-hdd-o fa-stack-1x fa-inverse"></i></span></span>
@@ -99,7 +99,7 @@
                         <div class="app-notification__content">
                             <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-envelope fa-stack-1x fa-inverse"></i></span></span>
                                 <div>
-                                    <p class="app-notification__message">deLAW sent you a mail</p>
+                                    <p class="app-notification__message">Optimal sent you a mail</p>
                                     <p class="app-notification__meta">2 min ago</p>
                                 </div></a></li>
                             <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-danger"></i><i class="fa fa-hdd-o fa-stack-1x fa-inverse"></i></span></span>
@@ -190,7 +190,7 @@
         </div>
         <% } %>
       </div>
-        <form action="/company" method="POST" enctype="multipart/form-data">
+        <form id="company" action="/company" method="POST" enctype="multipart/form-data">
       <div class="row">
         <div class="col-md-12">
           <div class="tile">
@@ -201,7 +201,11 @@
                       <h2>Fill in your Company details below</h2>
                     <label for="businessname">Choose a company's name</label>
                     <input class="form-control" id="businessname" type="text" aria-describedby="emailHelp" name="company[name]"
-                           placeholder="Choose a company's namme"><small class="form-text text-muted" id="emailHelp"></small>
+                           placeholder="Choose a company's name"><small class="form-text text-muted" id="emailHelp"></small>
+                  </div>
+                  <div class="form-group" style="display: none;">
+                    <label for="ref">Payment Reference</label>
+                    <input class="form-control" id="ref" type="text"  placeholder="Enter your name" required="" name="company[paymentref]">
                   </div>
                   <div class="form-group">
                     <label for="objective"> What is the nature of your company</label>
@@ -265,7 +269,7 @@
                                                placeholder="e.g. Nigerian" required="">
                                     </div>
                                     <div class="form-group">
-                                        <label for="address"> Where is the address of your company ?</label>
+                                        <label for="address"> Where is the address of your company's director ?</label>
                                         <input class="form-control" id="address" type="text"
                                                placeholder="e.g. suite 20,lion plaza,bernard street,bodja" required="" name="director[address]">
                                     </div>
@@ -358,7 +362,8 @@
                                         <input class="form-control" type="file" accept="image/*" name="image">
                                     </div>
                                 </div>
-                                <button class="btn btn-primary" type="submit">Submit</button>
+                                <script src="https://js.paystack.co/v1/inline.js"></script>
+                                    <button class="btn btn-primary" type="button" onclick="payWithPaystack()">Submit</button>
 
                         </div>
                     </div>
@@ -387,5 +392,6 @@
       	ga('send', 'pageview');
       }
     </script>
+    <script src="js/company.js"></script>
   </body>
 </html>

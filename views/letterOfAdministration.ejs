@@ -68,7 +68,7 @@
 </head>
 <body class="app sidebar-mini">
 <!-- Navbar-->
-<header class="app-header"><a class="app-header__logo" href="/">deLAW</a>
+<header class="app-header"><a class="app-header__logo" href="/">OptimalLegal</a>
     <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
     <!-- Navbar Right Menu-->
     <ul class="app-nav">
@@ -164,41 +164,45 @@
         </div>
         <ul class="app-breadcrumb breadcrumb">
           <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-          <li class="breadcrumb-item">deLAW Dashboard</li>
+          <li class="breadcrumb-item">Optimal Legalpreneurs Dashboard</li>
           <li class="breadcrumb-item"><a href="#"> Letter of Administration</a></li>
         </ul>
+      </div>
+      <div class="container-fluid">
+        <% if(message && message.length > 0){ %>
+        <div class="alert alert-danger" role="alert">
+              <p><%= message %></p>
+        </div>
+        <% } %>
+        <% if(logout && logout.length > 0) { %>
+        <div class="alert alert-warning" role="alert">
+              <p><%= logout %>. Thank you for visiting our site</p>
+        </div>
+        <% } %>
+        <% if(error && error.length > 0){ %>
+        <div class="alert alert-danger" role="alert">
+              <p><%= error %></p>
+        </div>
+        <% } %>
+        <% if(success && success.length > 0){ %>
+        <div class="alert alert-success" role="alert">
+              <p><%= success %></p>
+        </div>
+        <% } %>
       </div>
       <div class="row">
         <div class="col-md-12">
           <div class="tile">
             <div class="row">
               <div class="col-lg-6">
-                <div class="container-fluid">
-                    <% if(message && message.length > 0){ %>
-                    <div class="alert alert-danger" role="alert">
-                          <p><%= message %></p>
-                    </div>
-                    <% } %>
-                    <% if(logout && logout.length > 0) { %>
-                    <div class="alert alert-warning" role="alert">
-                          <p><%= logout %>. Thank you for visiting our site</p>
-                    </div>
-                    <% } %>
-                    <% if(error && error.length > 0){ %>
-                    <div class="alert alert-danger" role="alert">
-                          <p><%= error %></p>
-                    </div>
-                    <% } %>
-                    <% if(success && success.length > 0){ %>
-                    <div class="alert alert-success" role="alert">
-                          <p><%= success %></p>
-                    </div>
-                    <% } %>
-                  </div>
-                <form action="/letter" method="POST">
+                <form id="letter" action="/letter" method="POST">
                   <div class="form-group">
                     <label for="Name">What is your Name?</label>
                     <input class="form-control" id="Name" type="text"  placeholder="Enter your name" required="" name="letter[name]">
+                  </div>
+                  <div class="form-group" style="display: none;">
+                    <label for="ref">Payment Reference</label>
+                    <input class="form-control" id="ref" type="text"  placeholder="Enter your name" required="" name="letter[paymentref]">
                   </div>
                   <div class="form-group">
                     <label for="address">What is your home address</label>
@@ -220,7 +224,8 @@
                     <label for="help">How may we help you?</label>
                     <textarea class="form-control" id="help" rows="3" required="How may we help you, please" name="letter[content]"></textarea>
                   </div>
-                    <button class="btn btn-primary" type="submit">Submit</button>
+                  <script src="https://js.paystack.co/v1/inline.js"></script>
+                  <button class="btn btn-primary" type="button" onclick="payWithPaystack()">Submit</button>
                 </form> 
               </div>
             </div>
@@ -250,5 +255,6 @@
       	ga('send', 'pageview');
       }
     </script>
+    <script src="js/letter.js"></script>
   </body>
 </html>

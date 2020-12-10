@@ -9,7 +9,9 @@ var businessSchema = new mongoose.Schema({
     nature: String,
     address: String, 
     email: String,
-    contact: String,
+    phone: String,
+    paymentref: String,
+    amount: String,
     proprietor:
         {
             name: String,
@@ -26,12 +28,6 @@ var businessSchema = new mongoose.Schema({
         {
             type: String
         }
-    ],
-    payment: [
-        {
-            amount: Number,
-            date: String
-        } 
     ]
 })
 

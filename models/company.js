@@ -8,7 +8,9 @@ var companySchema = new mongoose.Schema({
     name: String,
     nature: String,
     address: String,
-    shares: String,
+    share: String,
+    paymentref: String,
+    amount: String,
     director:
         {
             name: String,
@@ -34,13 +36,7 @@ var companySchema = new mongoose.Schema({
         email: String,
         phone: String,
         idType: String
-    },
-    payment: [
-        {
-            amount: String,
-            date: String
-        } 
-    ]
+    }
 })
 
 module.exports = mongoose.model("Company", companySchema);

@@ -89,11 +89,15 @@
             border-radius: 10px;
             padding: 2px;
         }
+        h3 {font-weight: bold;}
+        .thumbnail img {
+            height: 150px;
+        }
     </style>
 </head>
 <body class="app sidebar-mini">
 <!-- Navbar-->
-<header class="app-header"><a class="app-header__logo" href="#">deLAW</a>
+<header class="app-header"><a class="app-header__logo" href="#">OptimalLegal</a>
     <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
     <!-- Navbar Right Menu-->
     <ul class="app-nav">
@@ -122,6 +126,7 @@
         <!--<li class="treeview"><a class="app-menu__item" href="Upload%20Properties.html" data-toggle="treeview"><i class="app-menu__icon fa fa-home"></i><span class="app-menu__label"> Upload Properties </span></a>-->
         <!--</li>-->
         <li><a class="app-menu__item active" href="/admin_uploadproperty"><i class="app-menu__icon fa fa-home"></i><span class="app-menu__label">Upload Properties</span></a></li>
+        <li><a class="app-menu__item active" href="/products_list"><i class="app-menu__icon fa fa-home"></i><span class="app-menu__label">Manage Properties</span></a></li>
         <li><a class="app-menu__item active" href="/admin_logout"><i class="app-menu__icon fa fa-sign-out"></i><span class="app-menu__label">Log out</span></a></li>
         </li>
     </ul>
@@ -167,24 +172,24 @@
                                 <div class="bot-border"></div>
                             </div>
                             <div class="row">
-                                <div class="col-sm-5 col-xs-6 tital " >E-mail</div><div class="col-sm-7"> <%= user.email%> </div>
+                                <div class="col-sm-5 col-xs-6 tital " >E-mail</div><div class="col-sm-7 col-xs-6 "> <%= user.email%> </div>
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>
                             </div>
                             
                             <div class="row">
-                                <div class="col-sm-5 col-xs-6 tital " >First signup</div><div class="col-sm-7"> <%= user.created%> </div>
+                                <div class="col-sm-5 col-xs-6 tital " >First signup</div><div class="col-sm-7 col-xs-6 "> <%= user.created%> </div>
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>
                             </div>
                             <div class="row">
-                                <div class="col-sm-5 col-xs-6 tital " >Last Log-in</div><div class="col-sm-7"><%= user.login%> </div>
+                                <div class="col-sm-5 col-xs-6 tital " >Last Log-in</div><div class="col-sm-7 col-xs-6 "><%= user.login%> </div>
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>
                             </div>
                             
                             <div class="row">
-                                <div class="col-sm-5 col-xs-6 tital " >Password</div><div class="col-sm-7"><%= user.password%> </div>
+                                <div class="col-sm-5 col-xs-6 tital " >Password</div><div class="col-sm-7 col-xs-6 "><%= user.password%> </div>
                             </div>
                             <!-- /.box-body -->
                         </div>
@@ -198,12 +203,17 @@
     
     <section class="contact section-bg">
             
-        <% if(business && business.name) { %>
+        <% if(business) { %>
+           <% business.forEach(function(business) { %>
         <div class="section-title" data-aos="fade-up">
             <h2 style="text-align: center; color: indianred;"><%= business.name %></h2>
         </div>
-        <div class="table-responsive" >
-            <table class="table ">
+        <div class="row">
+            <div class="col-md-12">
+              <div class="tile">
+                <div class="tile-body">
+                  <div class="table-responsive">
+                    <table  class="table table-hover table-bordered" id="sampleTable">
                 <thead>
                 <tr>
                     <th>Date</th>
@@ -212,7 +222,6 @@
                     <th>Nature</th>
                     <th>Email</th>
                     <th>Address</th>
-                    <th>Contact</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -224,12 +233,22 @@
                         <td><%= business.nature %></td>
                         <td><%= business.email %></td>
                         <td><%= business.address %></td>
-                        <td><%= business.contact %></td>
                     <tr>                                    
                 </tbody>
             </table>
-            <h3 style="text-align: center;">Proprietor</h3>
-            <table class="table ">
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+
+            <h3 style="text-align: center;">PROPRIETOR</h3>
+            <div class="row">
+                <div class="col-md-12">
+                  <div class="tile">
+                    <div class="tile-body">
+                      <div class="table-responsive">
+                        <table  class="table table-hover table-bordered" id="sampleTable">
                 <thead>
                 <tr>
                     <th>Name</th>
@@ -244,41 +263,53 @@
                 <tbody>
                     
                         <tr>
-                            <td><%= business.proprietor.name %></td>
-                            <td><%= business.proprietor.address %></td>
-                            <td><%= business.proprietor.email %></td>
-                            <td><%= business.proprietor.date %></td>
-                            <td><%= business.proprietor.gender %></td>
-                            <td><%= business.proprietor.nationality %></td>
-                            <td><%= business.proprietor.contact %></td>
+                                <td><%= business.proprietor.name %></td>
+                                <td><%= business.proprietor.address %></td>
+                                <td><%= business.proprietor.email %></td>
+                                <td><%= business.proprietor.date %></td>
+                                <td><%= business.proprietor.gender %></td>
+                                <td><%= business.proprietor.nationality %></td>
+                                <td><%= business.proprietor.phone %></td>
+                            
                         <tr>                                   
                         
                 </tbody>
             </table>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+
             
-            <h3 style="text-align: center;">Payment</h3>
-            <table class="table ">
+            <h3 style="text-align: center;">PAYMENT</h3>
+            <div class="row">
+                <div class="col-md-12">
+                  <div class="tile">
+                    <div class="tile-body">
+                      <div class="table-responsive">
+                        <table  class="table table-hover table-bordered" id="sampleTable">
                 <thead>
                 <tr>
-                    <th>S/N</th>
-                    <th>Date</th>
-                    <th>Amount</th>
+                    <th>Reference No</th>
+                    <th>Amount (<span>&#8358;</span>)</th>
                 </tr>
                 </thead>
                 <tbody>
-                    <% var i = 0 %>
-                    <% business.payment.forEach(function(payment) { %>
                         <tr>
-                            <td><%= ++i %></td>
-                            <td><%= payment.date %></td>
-                            <td><%= payment.amount %></td>
+                            <td><%= business.paymentref %></td>
+                            <td><%= business.amount %></td>
                         <tr>                                   
-                    <% }) %>
                 </tbody>
             </table>
         </div>
+        </div>
+        </div>
+        </div>
+        </div>
+
                     
-        <h3 style="text-align: center;">Attached Documents</h3>
+        <h3 style="text-align: center;">ATTACHED DOCUMENTS</h3>
         <div style="display:flex; flex-wrap: wrap;">
             <div class="row">
                 <% business.identity.forEach(function(identity){%>
@@ -291,16 +322,23 @@
             </div>
             
         </div>
+        <%  }) %>
+        <br>
         <% }  %>
-        <br>
-        <br>
 
-        <% if(company && company.name) { %>
+        
+
+        <% if(company) { %>
+            <% company.forEach(function(company) { %>
             <div class="section-title" data-aos="fade-up">
                 <h2 style="text-align: center; color: indianred;"><%= company.name %></h2>
             </div>
-            <div class="table-responsive" >
-                <table class="table ">
+            <div class="row">
+                <div class="col-md-12">
+                  <div class="tile">
+                    <div class="tile-body">
+                      <div class="table-responsive">
+                        <table  class="table table-hover table-bordered" id="sampleTable">
                     <thead>
                     <tr>
                         <th>Date</th>
@@ -323,8 +361,19 @@
                         <tr>                                    
                     </tbody>
                 </table>
-                <h3 style="text-align: center;">Director</h3>
-                <table class="table ">
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+
+                <h3 style="text-align: center;">DIRECTOR</h3>
+                <div class="row">
+                    <div class="col-md-12">
+                      <div class="tile">
+                        <div class="tile-body">
+                          <div class="table-responsive">
+                            <table  class="table table-hover table-bordered" id="sampleTable">
                     <thead>
                     <tr>
                         <th>Name</th>
@@ -339,20 +388,32 @@
                     <tbody>
                         
                             <tr>
-                                <td><%= company.directtor.name %></td>
-                                <td><%= company.directtor.address %></td>
-                                <td><%= company.directtor.email %></td>
-                                <td><%= company.directtor.date %></td>
-                                <td><%= company.directtor.gender %></td>
-                                <td><%= company.directtor.nationality %></td>
-                                <td><%= company.directtor.contact %></td>
+                                    <td><%= company.director.name %></td>
+                                    <td><%= company.director.address %></td>
+                                    <td><%= company.director.email %></td>
+                                    <td><%= company.director.date %></td>
+                                    <td><%= company.director.gender %></td>
+                                    <td><%= company.director.nationality %></td>
+                                    <td><%= company.director.phone %></td>
+                                
                             <tr>                                   
                             
                     </tbody>
                 </table>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
 
-                <h3 style="text-align: center;">Secretary</h3>
-                <table class="table ">
+
+                <h3 style="text-align: center;">SECRETARY</h3>
+                <div class="row">
+                    <div class="col-md-12">
+                      <div class="tile">
+                        <div class="tile-body">
+                          <div class="table-responsive">
+                            <table  class="table table-hover table-bordered" id="sampleTable">
                     <thead>
                     <tr>
                         <th>Name</th>
@@ -373,35 +434,46 @@
                                 <td><%= company.secretary.date %></td>
                                 <td><%= company.secretary.gender %></td>
                                 <td><%= company.secretary.nationality %></td>
-                                <td><%= company.secretary.contact %></td>
+                                <td><%= company.secretary.phone %></td>
                             <tr>                                   
                             
                     </tbody>
                 </table>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+
                 
-                <h3 style="text-align: center;">Payment</h3>
-                <table class="table ">
-                    <thead>
-                    <tr>
-                        <th>S/N</th>
-                        <th>Date</th>
-                        <th>Amount</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                        <% var i = 0 %>
-                        <% company.payment.forEach(function(payment) { %>
-                            <tr>
-                                <td><%= ++i %></td>
-                                <td><%= payment.date %></td>
-                                <td><%= payment.amount %></td>
-                            <tr>                                   
-                        <% }) %>
-                    </tbody>
-                </table>
-            </div>
+                <h3 style="text-align: center;">PAYMENT</h3>
+                <div class="row">
+                    <div class="col-md-12">
+                      <div class="tile">
+                        <div class="tile-body">
+                          <div class="table-responsive">
+                            <table  class="table table-hover table-bordered" id="sampleTable">
+                        <thead>
+                        <tr>
+                            <th>Reference No</th>
+                            <th>Amount (<span>&#8358;</span>)</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                                <tr>
+                                    <td><%= company.paymentref %></td>
+                                    <td><%= company.amount %></td>
+                                <tr>                                   
+                        </tbody>
+                    </table>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+
                         
-            <h3 style="text-align: center;">Attached Documents</h3>
+            <h3 style="text-align: center;">ATTACHED DOCUMENTS</h3>
             <div class="row">
                 <% company.identity.forEach(function(identity){%>
                     <div class="col-md-3 col-sm-6">
@@ -411,16 +483,22 @@
                     </div>    
                     <% }); %>
             </div>
+            <% }) %>
+            <br>
             <% }  %>
-            <br>
-            <br>
+            
 
-            <% if(incorporate && incorporate.name) { %>
+            <% if(incorporate) { %>
+                <% incorporate.forEach(function(incorporate) { %>
                 <div class="section-title" data-aos="fade-up">
                     <h2 style="text-align: center; color: indianred;"><%= incorporate.name %></h2>
                 </div>
-                <div class="table-responsive" >
-                    <table class="table ">
+                <div class="row">
+                    <div class="col-md-12">
+                      <div class="tile">
+                        <div class="tile-body">
+                          <div class="table-responsive">
+                            <table  class="table table-hover table-bordered" id="sampleTable">
                         <thead>
                         <tr>
                             <th>Date</th>
@@ -438,13 +516,24 @@
                                 <td>Incorporate and Trustees</td>
                                 <td><%= incorporate.name %></td>
                                 <td><%= incorporate.nature %></td>
-                                <td><%= incorporate.modes %></td>
+                                <td><%= incorporate.mode %></td>
                                 <td><%= incorporate.address %></td>
                             <tr>                                    
                         </tbody>
                     </table>
-                    <h3 style="text-align: center;">Trustee</h3>
-                    <table class="table ">
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+
+                    <h3 style="text-align: center;">TRUSTEE</h3>
+                    <div class="row">
+                        <div class="col-md-12">
+                          <div class="tile">
+                            <div class="tile-body">
+                              <div class="table-responsive">
+                                <table  class="table table-hover table-bordered" id="sampleTable">
                         <thead>
                         <tr>
                             <th>Name</th>
@@ -465,14 +554,25 @@
                                     <td><%= incorporate.trustee.date %></td>
                                     <td><%= incorporate.trustee.gender %></td>
                                     <td><%= incorporate.trustee.nationality %></td>
-                                    <td><%= incorporate.trustee.contact %></td>
+                                    <td><%= incorporate.trustee.phone %></td>
                                 <tr>                                   
                                 
                         </tbody>
                     </table>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
 
-                    <h3 style="text-align: center;">Chairman</h3>
-                    <table class="table ">
+
+                    <h3 style="text-align: center;">CHAIRMAN</h3>
+                    <div class="row">
+                        <div class="col-md-12">
+                          <div class="tile">
+                            <div class="tile-body">
+                              <div class="table-responsive">
+                                <table  class="table table-hover table-bordered" id="sampleTable">
                         <thead>
                         <tr>
                             <th>Name</th>
@@ -493,14 +593,26 @@
                                     <td><%= incorporate.chairman.date %></td>
                                     <td><%= incorporate.chairman.gender %></td>
                                     <td><%= incorporate.chairman.nationality %></td>
-                                    <td><%= incorporate.chairman.contact %></td>
+                                    <td><%= incorporate.chairman.phone %></td>
                                 <tr>                                   
                                 
                         </tbody>
                     </table>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
 
-                    <h3 style="text-align: center;">Secretary</h3>
-                    <table class="table ">
+                    
+
+                    <h3 style="text-align: center;">SECRETARY</h3>
+                    <div class="row">
+                        <div class="col-md-12">
+                          <div class="tile">
+                            <div class="tile-body">
+                              <div class="table-responsive">
+                                <table  class="table table-hover table-bordered" id="sampleTable">
                         <thead>
                         <tr>
                             <th>Name</th>
@@ -521,35 +633,45 @@
                                     <td><%= incorporate.secretary.date %></td>
                                     <td><%= incorporate.secretary.gender %></td>
                                     <td><%= incorporate.secretary.nationality %></td>
-                                    <td><%= incorporate.secretary.contact %></td>
+                                    <td><%= incorporate.secretary.phone %></td>
                                 <tr>                                   
                                 
                         </tbody>
                     </table>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+
                     
-                    <h3 style="text-align: center;">Payment</h3>
-                    <table class="table ">
+                    <h3 style="text-align: center;">PAYMENT</h3>
+                    <div class="row">
+                        <div class="col-md-12">
+                          <div class="tile">
+                            <div class="tile-body">
+                              <div class="table-responsive">
+                                <table  class="table table-hover table-bordered" id="sampleTable">
                         <thead>
                         <tr>
-                            <th>S/N</th>
-                            <th>Date</th>
-                            <th>Amount</th>
+                            <th>Reference No</th>
+                            <th>Amount (<span>&#8358;</span>)</th>
                         </tr>
                         </thead>
                         <tbody>
-                            <% var i = 0 %>
-                            <% incorporate.payment.forEach(function(payment) { %>
                                 <tr>
-                                    <td><%= ++i %></td>
-                                    <td><%= payment.date %></td>
-                                    <td><%= payment.amount %></td>
+                                    <td><%= incorporate.paymentref %></td>
+                                    <td><%= incorporate.amount %></td>
                                 <tr>                                   
-                            <% }) %>
                         </tbody>
                     </table>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
                 </div>
                             
-                <h3 style="text-align: center;">Attached Documents</h3>
+                <h3 style="text-align: center;">ATTACHED DOCUMENTS</h3>
                 <div class="row">
                     <% incorporate.identity.forEach(function(identity){%>
                         <div class="col-md-3 col-sm-6">
@@ -559,16 +681,23 @@
                         </div>    
                         <% }); %>
                 </div>
+                <% }) %>
+                <br>
                 <% }  %>
-                <br>
-                <br>
-    
-                <% if(letter && letter.name) { %>
+
+               
+
+                <% if(letter) { %>
+                    <% letter.forEach(function(letter) { %>
                     <div class="section-title" data-aos="fade-up">
                         <h2 style="text-align: center; color: indianred;"><%= letter.name %></h2>
                     </div>
-                    <div class="table-responsive" >
-                        <table class="table ">
+                    <div class="row">
+                        <div class="col-md-12">
+                          <div class="tile">
+                            <div class="tile-body">
+                              <div class="table-responsive">
+                                <table  class="table table-hover table-bordered" id="sampleTable">
                             <thead>
                             <tr>
                                 <th>Date</th>
@@ -587,49 +716,118 @@
                                     <td>letter</td>
                                     <td><%= letter.name %></td>
                                     <td><%= letter.content %></td>
-                                    <td><%= letter.contact %></td>
+                                    <td><%= letter.phone %></td>
                                     <td><%= letter.email%></td>
                                     <td><%= letter.address %></td>
                                 <tr>                                    
                             </tbody>
                         </table>
                     </div>
-                    <br>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+
+                        <h3 style="text-align: center;">PAYMENT</h3>
+                        <div class="row">
+                            <div class="col-md-12">
+                              <div class="tile">
+                                <div class="tile-body">
+                                  <div class="table-responsive">
+                                    <table  class="table table-hover table-bordered" id="sampleTable">
+                                <thead>
+                                <tr>
+                                    <th>Reference No</th>
+                                    <th>Amount (<span>&#8358;</span>)</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                            <td><%= letter.paymentref %></td>
+                                            <td><%= letter.amount %></td>
+                                        <tr>                                   
+                                </tbody>
+                            </table>
+                      </div>
+                     </div>
+                    </div>
+                   </div>
+                   </div>
+                    <% }) %>
                     <br>
                     <% }  %>
-                    
-                <% if(will && will.name) { %>
+
+                   
+
+                <% if(will) { %>
+                    <% will.forEach(function(will) { %>
                     <div class="section-title" data-aos="fade-up">
                         <h2 style="text-align: center; color: indianred;"><%= will.name %></h2>
                     </div>
-                    <div class="table-responsive" >
-                        <table class="table ">
-                            <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Category</th>
-                                <th>Name</th>
-                                <th>Content</th>
-                                <th>Contact</th>
-                                <th>Email</th>
-                                <th>Address</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                               
+                        <div class="row">
+                        <div class="col-md-12">
+                          <div class="tile">
+                            <div class="tile-body">
+                              <div class="table-responsive">
+                                <table  class="table table-hover table-bordered" id="sampleTable">
+                                <thead>
                                 <tr>
-                                    <td><%= letter.date %></td>
-                                    <td>will</td>
-                                    <td><%= will.name %></td>
-                                    <td><%= will.content %></td>
-                                    <td><%= will.contact %></td>
-                                    <td><%= will.email%></td>
-                                    <td><%= will.address %></td>
-                                <tr>                                    
-                            </tbody>
-                        </table>
+                                    <th>Date</th>
+                                    <th>Category</th>
+                                    <th>Name</th>
+                                    <th>Content</th>
+                                    <th>Contact</th>
+                                    <th>Email</th>
+                                    <th>Address</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                
+                                    <tr>
+                                        <td><%= will.date %></td>
+                                        <td>will</td>
+                                        <td><%= will.name %></td>
+                                        <td><%= will.content %></td>
+                                        <td><%= will.phone %></td>
+                                        <td><%= will.email%></td>
+                                        <td><%= will.address %></td>
+                                    <tr>                                    
+                                </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                       </div>
+                        <h3 style="text-align: center;">PAYMENT</h3>
+                        <div class="row">
+                            <div class="col-md-12">
+                              <div class="tile">
+                                <div class="tile-body">
+                                  <div class="table-responsive">
+                                    <table  class="table table-hover table-bordered" id="sampleTable">
+                                        <thead>
+                                        <tr>
+                                            <th>Reference No</th>
+                                            <th>Amount (<span>&#8358;</span>)</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                    <td><%= will.paymentref %></td>
+                                                    <td><%= will.amount %></td>
+                                                <tr>                                   
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
+                    <% }) %>
                     <% }  %>
+
 
     </section><!-- End form Section -->
 

@@ -9,7 +9,9 @@ var letterSchema = new mongoose.Schema({
     address: String,
     phone: String,
     email: String,
-    content: String
+    content: String,
+    paymentref: String,
+    amount: String
     
 })
 

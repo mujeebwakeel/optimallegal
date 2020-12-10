@@ -64,7 +64,7 @@
 </head>
 <body class="app sidebar-mini">
 <!-- Navbar-->
-<header class="app-header"><a class="app-header__logo" href="#">deLAW</a>
+<header class="app-header"><a class="app-header__logo" href="#">OptimalLegal</a>
     <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
     <!-- Navbar Right Menu-->
     <ul class="app-nav">
@@ -94,6 +94,7 @@
         <!--<li class="treeview"><a class="app-menu__item" href="Upload%20Properties.html" data-toggle="treeview"><i class="app-menu__icon fa fa-home"></i><span class="app-menu__label"> Upload Properties </span></a>-->
         <!--</li>-->
         <li><a class="app-menu__item active" href="/admin_uploadproperty"><i class="app-menu__icon fa fa-home"></i><span class="app-menu__label">Upload Properties</span></a></li>
+        <li><a class="app-menu__item active" href="/products_list"><i class="app-menu__icon fa fa-home"></i><span class="app-menu__label">Manage Properties</span></a></li>
         <li><a class="app-menu__item active" href="/admin_logout"><i class="app-menu__icon fa fa-sign-out"></i><span class="app-menu__label">Log out</span></a></li>
         </li>
     </ul>
@@ -119,37 +120,20 @@
                       <th>User Name</th>
                       <th>Transaction ID</th>
                       <th>Payment Type</th>
-                      <th>Status</th>
                       <th>Date</th>
-                      <th>Amount</th>
+                      <th>Amount (<span>&#8358;</span>)</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>Oladoja Pelumi</td>
-                      <td>203AD</td>
-                      <td>Business Registration</td>
-                      <td>Pending</td>
-                      <td>2011/04/25</td>
-                      <td><span>&#8358;</span>20,000</td>
-                    </tr>
-                    <tr>
-                        <td>Emmanuel</td>
-                        <td>256CV</td>
-                        <td>Will</td>
-                        <td>Successful</td>
-                        <td>2020/05/08</td>
-                        <td><span>&#8358;</span>29,000</td>
-                    </tr>
-                    <tr>
-                        <td>Tiger</td>
-                        <td>130FA</td>
-                        <td>Company Limited</td>
-                        <td>Failed</td>
-                        <td>2011/04/24</td>
-                        <td><span>&#8358;</span>30,000</td>
-                    </tr>
-                    
+                    <% payments.forEach(function(payment) { %>
+                      <tr>
+                        <td><%= payment.username%></td>
+                        <td><%= payment.ref%></td>
+                        <td><%= payment.type%></td>
+                        <td><%= payment.date%></td>
+                        <td><%= payment.amount%></td>
+                      </tr>
+                    <% }) %>
                   </tbody>
                 </table>
               </div>

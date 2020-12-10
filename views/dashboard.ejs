@@ -63,7 +63,7 @@
 </head>
 <body class="app sidebar-mini">
 <!-- Navbar-->
-<header class="app-header"><a class="app-header__logo" href="/">deLAW</a>
+<header class="app-header"><a class="app-header__logo" href="/">OptimalLegal</a>
     <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
     <!-- Navbar Right Menu-->
     <ul class="app-nav">
@@ -78,7 +78,7 @@
                 <div class="app-notification__content">
                     <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-envelope fa-stack-1x fa-inverse"></i></span></span>
                         <div>
-                            <p class="app-notification__message">deLAW sent you a mail</p>
+                            <p class="app-notification__message">Optimal sent you a mail</p>
                             <p class="app-notification__meta">2 min ago</p>
                         </div></a></li>
                     <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-danger"></i><i class="fa fa-hdd-o fa-stack-1x fa-inverse"></i></span></span>
@@ -94,7 +94,7 @@
                     <div class="app-notification__content">
                         <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-envelope fa-stack-1x fa-inverse"></i></span></span>
                             <div>
-                                <p class="app-notification__message">deLAW sent you a mail</p>
+                                <p class="app-notification__message">Optimal sent you a mail</p>
                                 <p class="app-notification__meta">2 min ago</p>
                             </div></a></li>
                         <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-danger"></i><i class="fa fa-hdd-o fa-stack-1x fa-inverse"></i></span></span>
@@ -155,7 +155,7 @@
       <div class="app-title">
         <div>
           <h1><i class="fa fa-dashboard"></i> Dashboard</h1>
-          <p>Welcome to deLAW dashbord!</p>
+          <p>Welcome to Optimal Legalpreneurs dashbord!</p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
           <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
@@ -169,6 +169,28 @@
                 </div>
             </div>
         </div>
+        <div class="container-fluid">
+            <% if(message && message.length > 0){ %>
+            <div class="alert alert-danger" role="alert">
+                  <p><%= message %></p>
+            </div>
+            <% } %>
+            <% if(logout && logout.length > 0) { %>
+            <div class="alert alert-warning" role="alert">
+                  <p><%= logout %>. Thank you for visiting our site</p>
+            </div>
+            <% } %>
+            <% if(error && error.length > 0){ %>
+            <div class="alert alert-danger" role="alert">
+                  <p><%= error %></p>
+            </div>
+            <% } %>
+            <% if(success && success.length > 0){ %>
+            <div class="alert alert-success" role="alert">
+                  <p><%= success %></p>
+            </div>
+            <% } %>
+          </div>
     </main>
     <!-- Essential javascripts for application to work-->
     <script src="js/jquery-3.3.1.min.js"></script>

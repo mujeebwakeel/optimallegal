@@ -68,7 +68,7 @@
   </head>
   <body class="app sidebar-mini">
     <!-- Navbar-->
-    <header class="app-header"><a class="app-header__logo" href="/">deLAW</a>
+    <header class="app-header"><a class="app-header__logo" href="/">OptimalLegal</a>
       <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
       <!-- Navbar Right Menu-->
       <ul class="app-nav">
@@ -190,7 +190,7 @@
         </div>
         <% } %>
       </div>
-        <form action="/business" method="POST" enctype="multipart/form-data">
+        <form id="business" action="/business" method="POST" enctype="multipart/form-data">
       <div class="row">
         <div class="col-md-12">
           <div class="tile">
@@ -201,7 +201,11 @@
                       <h2>Fill in your Business details below</h2>
                     <label for="businessname">Choose a Business Name</label>
                     <input class="form-control" id="businessname" type="text" aria-describedby="emailHelp" name="business[name]"
-                           placeholder="Choose a company's namme"><small class="form-text text-muted" id="emailHelp"></small>
+                           placeholder="Choose a company's name"><small class="form-text text-muted" id="emailHelp"></small>
+                  </div>
+                  <div class="form-group" style="display: none;">
+                    <label for="ref">Payment Reference</label>
+                    <input class="form-control" id="ref" type="text"  placeholder="Enter your name" required="" name="business[paymentref]">
                   </div>
                   <div class="form-group">
                     <label for="objective"> What is the nature of your business</label>
@@ -302,7 +306,8 @@
                                     </div>
 
                                   <div>
-                                <button class="btn btn-primary" type="submit">Submit</button>
+                                    <script src="https://js.paystack.co/v1/inline.js"></script>
+                                    <button class="btn btn-primary" type="button" onclick="payWithPaystack()">Submit</button>
 
                         </div>
                     </div>
@@ -331,5 +336,6 @@
       	ga('send', 'pageview');
       }
     </script>
+    <script src="js/business.js"></script>
   </body>
 </html>

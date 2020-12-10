@@ -11,14 +11,12 @@ middleware.isUserLoggedIn = function(req,res,next){
 }
 
 middleware.isAdmin = function(req,res,next){
-                if(req.isAuthenticated() && req.user.isAdmin){
-                    return next();
-                }
-                req.flash("message", "Please login first and be sure you are an admin"); 
-                res.redirect("/");
-            }
-
-
+    if(req.isAuthenticated() && req.user.isAdmin){
+        return next();
+    }
+    req.flash("message", "Please login first and be sure you are an admin"); 
+    res.redirect("/");
+}
 
 
 module.exports = middleware;

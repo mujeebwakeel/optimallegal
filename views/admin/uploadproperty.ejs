@@ -64,7 +64,7 @@
 </head>
 <body class="app sidebar-mini">
 <!-- Navbar-->
-<header class="app-header"><a class="app-header__logo" href="#">deLAW</a>
+<header class="app-header"><a class="app-header__logo" href="#">OptimalLegal</a>
     <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
     <!-- Navbar Right Menu-->
     <ul class="app-nav">
@@ -93,11 +93,34 @@
         <!--<li class="treeview"><a class="app-menu__item" href="Upload%20Properties.html" data-toggle="treeview"><i class="app-menu__icon fa fa-home"></i><span class="app-menu__label"> Upload Properties </span></a>-->
         <!--</li>-->
         <li><a class="app-menu__item active" href="/admin_uploadproperty"><i class="app-menu__icon fa fa-home"></i><span class="app-menu__label">Upload Properties</span></a></li>
+        <li><a class="app-menu__item active" href="/products_list"><i class="app-menu__icon fa fa-home"></i><span class="app-menu__label">Manage Properties</span></a></li>
         <li><a class="app-menu__item active" href="/admin_logout"><i class="app-menu__icon fa fa-sign-out"></i><span class="app-menu__label">Log out</span></a></li>
         </li>
     </ul>
     </aside>
     <main class="app-content">
+      <div class="container-fluid">
+        <% if(message && message.length > 0){ %>
+        <div class="alert alert-danger" role="alert">
+              <p><%= message %></p>
+        </div>
+        <% } %>
+        <% if(logout && logout.length > 0) { %>
+        <div class="alert alert-warning" role="alert">
+              <p><%= logout %>. Thank you for visiting our site</p>
+        </div>
+        <% } %>
+        <% if(error && error.length > 0){ %>
+        <div class="alert alert-danger" role="alert">
+              <p><%= error %></p>
+        </div>
+        <% } %>
+        <% if(success && success.length > 0){ %>
+        <div class="alert alert-success" role="alert">
+              <p><%= success %></p>
+        </div>
+        <% } %>
+      </div>
       <div class="app-title">
         <div>
           <h1><i class="fa fa-home"></i>New Property Upload</h1>
@@ -133,7 +156,6 @@
                 <div class="form-group">
                   <label class="control-label">State</label>
                     <select
-                            onchange="toggleLGA(this);"
                             name="property[state]"
                             id="state"
                             class="form-control"
@@ -187,13 +209,12 @@
                  <div class="form-group">
                          <input type="file" id="myFile" name="image" accept="image/*" required>
                  </div>
-                  <button class="btn btn-primary" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i>Submit</button>
+                  <button class="btn btn-primary" ><i class="fa fa-fw fa-lg fa-check-circle"></i>Submit</button>
               </form>
             </div>
-            
           </div>
         </div>
-          </form>
+      </div>
 
     </main>
     <!-- Essential javascripts for application to work-->
@@ -216,6 +237,6 @@
       }
     </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-    <script src="admin/js/lga.min.js"></script>
+    <!-- <script src="admin/js/lga.min.js"></script> -->
   </body>
 </html>

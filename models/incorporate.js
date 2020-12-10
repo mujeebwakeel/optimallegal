@@ -9,6 +9,8 @@ var incorporateSchema = new mongoose.Schema({
     nature: String,
     address: String,
     mode: String,
+    paymentref: String,
+    amount: String,
     trustee:
         {
             name: String,
@@ -47,13 +49,7 @@ var incorporateSchema = new mongoose.Schema({
         email: String,
         phone: String,
         idType: String
-    },
-    payment: [
-        {
-            amount: String,
-            date: String
-        } 
-    ]
+    }
 })
 
 module.exports = mongoose.model("Incorporate", incorporateSchema);
