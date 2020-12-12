@@ -676,15 +676,15 @@ router.get("/payment", middleware.isUserLoggedIn, function(req,res) {
 // });
 
 
-router.get("/all", function(req,res) {
-    User.find({}, function(err, found) {
-        if(err || !found) {
-            res.send("error occurred");
-        }
+// router.get("/all", function(req,res) {
+//     User.find({}, function(err, found) {
+//         if(err || !found) {
+//             res.send("error occurred");
+//         }
         
-            res.send(found);
-    })
-})
+//             res.send(found);
+//     })
+// })
 
 // LOG OUT ROUTE
 router.get("/admin_logout", function(req,res){

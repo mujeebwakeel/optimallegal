@@ -54,7 +54,7 @@ router.post('/forgot', function(req, res) {
         to: user.email,
         from: process.env.GMAIL_ADDRESS,
         subject: 'Optimal Password Recovery ',
-        text: mail
+        html: mail
       };
       transporter.sendMail(mailOptions, function(err) {
         if(!err) {
