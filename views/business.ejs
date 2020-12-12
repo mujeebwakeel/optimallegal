@@ -250,7 +250,7 @@
                                 <div class="col-lg-12">
                                     <h2>Proprietor's INFO</h2>
                                     <h6>Fill in the details below</h6>
-                                <div class="form-group">
+                                    <div class="form-group">
                                         <label for="businessname">Proprietor's Name</label>
                                         <input class="form-control" id="businessname" type="text" aria-describedby="emailHelp" name="proprietor[name]"
                                                placeholder="e.g. chris"><small class="form-text text-muted" id="emailHelp"></small>
@@ -303,11 +303,18 @@
                                         <label class="control-label">Upload Passport Photograph</label>
                                         <input class="form-control" type="file" accept="image/*" name="image">
                                     </div>
+                                    <div class="form-group">
+                                      <label class="control-label">Enter your signature</label>
+                                      <div id="signature"></div>
+                                      <button type="button" class="btn btn-danger btn-sm" id="btnClear" >Clear</button>
+                                      <button type="button" class="btn btn-primary btn-sm" id="btnSave">Save</button>
+                                      <input type="hidden" id="hiddenSigData" name="signature" />
                                     </div>
+                                  </div>
 
-                                  <div>
+                                    
                                     <script src="https://js.paystack.co/v1/inline.js"></script>
-                                    <button class="btn btn-primary" type="button" onclick="payWithPaystack()">Submit</button>
+                                    <button class="btn btn-primary" type="button" onclick="payWithPaystack()" id="submit" disabled>Submit</button>
 
                         </div>
                     </div>
@@ -337,5 +344,12 @@
       }
     </script>
     <script src="js/business.js"></script>
+    <script src="js/jSignature.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#signature").jSignature()
+        })
+    </script>
+    <script src="js/submit.js"></script>
   </body>
 </html>

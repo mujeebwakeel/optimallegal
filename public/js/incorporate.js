@@ -3,7 +3,7 @@ function payWithPaystack() {
     var handler = PaystackPop.setup({ 
         key: 'pk_live_cadfe120f2730e409cf0edc98cd6017f1aa72d79', //put your public key here
         email: document.getElementById("e-mail").value, //put your customer's email here
-        amount: 3700, //amount the customer is supposed to pay
+        amount: 18000000, //amount the customer is supposed to pay
         metadata: {
             custom_fields: [
                 {

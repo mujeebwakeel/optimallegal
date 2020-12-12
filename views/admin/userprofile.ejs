@@ -167,6 +167,11 @@
                             <div class="clearfix"></div>
                             <hr style="margin:5px 0 5px 0;">
                             <div class="row">
+                                <div class="col-sm-5 col-xs-6 tital" >Legal Name</div><div class="col-sm-7 col-xs-6 "><%= user.name%> </div>
+                                <div class="clearfix"></div>
+                                <div class="bot-border"></div>
+                            </div>
+                            <div class="row">
                                 <div class="col-sm-5 col-xs-6 tital" >Username</div><div class="col-sm-7 col-xs-6 "><%= user.username%> </div>
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>
@@ -737,14 +742,14 @@
                                     <table  class="table table-hover table-bordered" id="sampleTable">
                                 <thead>
                                 <tr>
-                                    <th>Reference No</th>
-                                    <th>Amount (<span>&#8358;</span>)</th>
+                                    <th>Agreement</th>
+                                    <th>Response</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                         <tr>
-                                            <td><%= letter.paymentref %></td>
-                                            <td><%= letter.amount %></td>
+                                            <td>10% of the estate to be paid as price for service</td>
+                                            <td>Agreed</td>
                                         <tr>                                   
                                 </tbody>
                             </table>
@@ -753,6 +758,7 @@
                     </div>
                    </div>
                    </div>
+                   
                     <% }) %>
                     <br>
                     <% }  %>
@@ -828,6 +834,10 @@
                     <% }) %>
                     <% }  %>
 
+                    <h3 style="text-align: center;">SIGNATURE</h3>
+                   <input type="hidden" id="signature" value="<%= signature%>">
+                   <div style="text-align: center;" id="display"></div>
+                   <div style="text-align: center;" ><%= user.name%></div>
 
     </section><!-- End form Section -->
 
@@ -855,6 +865,11 @@
       ga('create', 'UA-72504830-1', 'auto');
       ga('send', 'pageview');
   }
+</script>
+<script>
+    $(document).ready(function(data){
+            $('#display').append("<img class='imported' src='" + $('#signature').val() + "'></img>");
+      })
 </script>
 </body>
 </html>

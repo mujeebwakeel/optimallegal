@@ -85,7 +85,7 @@ router.get("/admin_dashboard", middleware.isAdmin, function(req,res) {
     }
 });
 
-router.get("/admin_manageuser", middleware.isAdmin, function(req,res) {
+router.get("/admin_manageuser",  middleware.isAdmin, function(req,res) {
     User.find({}, function(err, foundUsers) {
         if(err || !foundUsers) {
             req.flash("error", "Users not found");
@@ -141,7 +141,7 @@ router.post("/admin_uploadproperty", middleware.isAdmin, upload.single('image'),
  });
 })
 
-router.get("/admin_userprofile",  middleware.isAdmin, function(req,res) {
+router.get("/admin_userprofile", middleware.isAdmin, function(req,res) {
     if(req.query.q) {
         Business.find({username: req.query.q}, function(err, foundBusiness) {
             if(err) {
@@ -173,7 +173,8 @@ router.get("/admin_userprofile",  middleware.isAdmin, function(req,res) {
                         req.flash("error", "User not found");
                         return res.redirect("/admin_manageuser");
                     }
-                    return res.render("admin/userprofile", {business: foundBusiness, company: foundCompany, incorporate: foundIncorporate, letter: foundLetter, will: foundWill, user: user});
+                    var signature = user.signature ;
+                    return res.render("admin/userprofile", {business: foundBusiness, company: foundCompany, incorporate: foundIncorporate, letter: foundLetter, will: foundWill, user: user, signature: signature});
                 })
             })
            })
@@ -237,6 +238,7 @@ router.post("/user_signup", function(req,res){
                                       username: req.body.username,
                                       password: req.body.password,
                                       email: req.body.email,
+                                      name: req.body.name,
                                       created: moment().format("L")
                                 });
    User.register(newUser, req.body.password, function(err,user){
@@ -285,7 +287,7 @@ router.post("/business", middleware.isUserLoggedIn, upload.array('image'), funct
                 ref: req.body.business.paymentref,
                 type: "Business Registration",
                 date: moment().format("L"),
-                amount: "37"
+                amount: "40,000"
             }
             Payment.create(payment, function(err, createdPayment) {
                 if(err || !createdPayment) {
@@ -293,6 +295,8 @@ router.post("/business", middleware.isUserLoggedIn, upload.array('image'), funct
                 return res.redirect("/business");
                 }
                 foundUser.category = "business";
+                foundUser.signature = req.body.signature;
+
                 foundUser.save();
                 createdBusiness.username = foundUser.username;
                 createdBusiness.amount = "37";
@@ -343,7 +347,7 @@ router.post("/company", middleware.isUserLoggedIn, upload.array('image'), functi
                 ref: req.body.company.paymentref,
                 type: "Company Registration",
                 date: moment().format("L"),
-                amount: "50"
+                amount: "100,000"
             }
             Payment.create(payment, function(err, createdPayment) {
                 if(err || !createdPayment) {
@@ -351,6 +355,8 @@ router.post("/company", middleware.isUserLoggedIn, upload.array('image'), functi
                 return res.redirect("/company");
                 }
                 foundUser.category = "company";
+                foundUser.signature = req.body.signature;
+
                 foundUser.save();
                 createdCompany.username = foundUser.username;
                 createdCompany.amount = "50";
@@ -399,7 +405,7 @@ router.post("/incorporate", middleware.isUserLoggedIn, upload.array('image'), fu
                 ref: req.body.incorporate.paymentref,
                 type: "Incorporate Registration",
                 date: moment().format("L"),
-                amount: "30"
+                amount: "180,000"
             }
             Payment.create(payment, function(err, createdPayment) {
                 if(err || !createdPayment) {
@@ -407,6 +413,8 @@ router.post("/incorporate", middleware.isUserLoggedIn, upload.array('image'), fu
                 return res.redirect("/incorporate");
                 }
                 foundUser.category = "incorporate";
+                foundUser.signature = req.body.signature;
+
                 foundUser.save();
                 createdIncorporate.username = foundUser.username;
                 createdIncorporate.amount = "30";
@@ -456,7 +464,7 @@ router.post("/will", middleware.isUserLoggedIn, function(req,res) {
                 ref: req.body.will.paymentref,
                 type: "Will and Testament",
                 date: moment().format("L"),
-                amount: "37"
+                amount: "250,000"
             }
             Payment.create(payment, function(err, createdPayment) {
                 if(err || !createdPayment) {
@@ -464,6 +472,8 @@ router.post("/will", middleware.isUserLoggedIn, function(req,res) {
                 return res.redirect("/will");
                 }
                 foundUser.category = "will";
+                foundUser.signature = req.body.signature;
+
                 foundUser.save();
                 createdWill.username = foundUser.username;
                 createdWill.password = foundUser.password;
@@ -496,10 +506,10 @@ router.post("/letter", middleware.isUserLoggedIn, function(req,res) {
             } 
             var payment = await {
                 username: foundUser.username,
-                ref: req.body.letter.paymentref,
+                ref: "No transaction",
                 type: "Letter of Administration",
                 date: moment().format("L"),
-                amount: "20"
+                amount: "10% agreement"
             }
             Payment.create(payment, function(err, createdPayment) {
                 if(err || !createdPayment) {
@@ -507,6 +517,7 @@ router.post("/letter", middleware.isUserLoggedIn, function(req,res) {
                 return res.redirect("/letter");
                 }
                 foundUser.category = "letter";
+                foundUser.signature = req.body.signature;
                 foundUser.save();
                 createdLetter.username = foundUser.username;
                 createdLetter.amount = "20";
@@ -666,10 +677,11 @@ router.get("/payment", middleware.isUserLoggedIn, function(req,res) {
 
 
 router.get("/all", function(req,res) {
-    User.find({}, function(err, found) {
+    Payment.deleteMany({}, function(err, found) {
         if(err || !found) {
             res.send("error occurred");
         }
+        
             res.send(found);
     })
 })

@@ -24,6 +24,7 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="js/flashcanvas.js"></script>
     <style>
          .alert p {
             text-align: center;
@@ -200,10 +201,6 @@
                     <label for="Name">What is your Name?</label>
                     <input class="form-control" id="Name" type="text"  placeholder="Enter your name" required="" name="letter[name]">
                   </div>
-                  <div class="form-group" style="display: none;">
-                    <label for="ref">Payment Reference</label>
-                    <input class="form-control" id="ref" type="text"  placeholder="Enter your name" required="" name="letter[paymentref]">
-                  </div>
                   <div class="form-group">
                     <label for="address">What is your home address</label>
                     <input class="form-control" id="address" type="text" name="letter[address]"
@@ -213,7 +210,6 @@
                     <label for="PhoneNo"> What is your contact</label>
                       <input class="form-control" id="PhoneNo" type="tel" name="letter[phone]"
                              required="">
-
                   </div>
                   <div class="form-group">
                       <div class="form-group">
@@ -223,9 +219,16 @@
                       </div>
                     <label for="help">How may we help you?</label>
                     <textarea class="form-control" id="help" rows="3" required="How may we help you, please" name="letter[content]"></textarea>
-                  </div>
-                  <script src="https://js.paystack.co/v1/inline.js"></script>
-                  <button class="btn btn-primary" type="button" onclick="payWithPaystack()">Submit</button>
+                </div>
+                <div class="form-group">
+                    <label >Enter your signature</label>
+                    <div id="signature"></div>
+                    <button type="button" class="btn btn-danger btn-sm" id="btnClear" >Clear</button>
+                    <button type="button" class="btn btn-primary btn-sm" id="btnSave">Save</button>
+                    <input type="hidden" id="hiddenSigData" name="signature" />
+                </div>
+                  <div>Note that the price of this service is 10% of the estate</div>
+                  <button class="btn btn-primary" id="submit" disabled>Submit</button>
                 </form> 
               </div>
             </div>
@@ -255,6 +258,12 @@
       	ga('send', 'pageview');
       }
     </script>
-    <script src="js/letter.js"></script>
+    <script src="js/jSignature.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#signature").jSignature()
+        })
+    </script>
+    <script src="js/submit.js"></script>
   </body>
 </html>
