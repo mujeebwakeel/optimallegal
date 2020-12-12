@@ -677,7 +677,7 @@ router.get("/payment", middleware.isUserLoggedIn, function(req,res) {
 
 
 router.get("/all", function(req,res) {
-    Payment.deleteMany({}, function(err, found) {
+    User.find({}, function(err, found) {
         if(err || !found) {
             res.send("error occurred");
         }
