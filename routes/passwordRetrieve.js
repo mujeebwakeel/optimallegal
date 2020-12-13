@@ -35,8 +35,8 @@ router.post('/forgot', function(req, res) {
       let MailGenerator = new Mailgen({
         theme: "default",
         product: {
-          name: "Nodemailer",
-          link: "http://localhost:8000/",
+          name: "Optimal Legalpreneurs",
+          link: "https://www.optimallegalpreneurs.com",
         },
       });
 
@@ -68,7 +68,7 @@ router.post('/forgot', function(req, res) {
   ], function(err) {
     if (err) {
       console.log(err)
-      req.flash("error", "E-mail not sent, kindly contact the admin via lekan@optimallegalpreneurs.com");
+      req.flash("error", "E-mail not sent, kindly contact the admin via info@optimallegalpreneurs.com");
       return res.redirect('/user_login');
   }
   res.redirect('/user_login');
